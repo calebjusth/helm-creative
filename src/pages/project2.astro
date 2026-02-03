@@ -1,0 +1,321 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="SLM Ethiopia Case Study">
+  <div class="bg-[#f5f5f5] text-[#0B0E14] overflow-x-hidden pt-16 md:pt-25">
+    
+    <!-- Hero Section -->
+    <header class="min-h-[85vh] flex flex-col justify-center px-6 md:px-16 lg:px-24 border-b border-black/5 mb-20">
+      <div class="max-w-7xl mx-auto w-full pt-12">
+        <span class="font-pangram-bold text-[#f5bd02] text-xs uppercase tracking-[0.5em] block animate-fade-in mb-8">
+          The Wisdom Economy
+        </span>
+        <h1 class="font-monument text-6xl md:text-8xl lg:text-[9vw] uppercase leading-[0.85] mb-10">
+          Golden <br /> <span class="text-transparent stroke-dark" style="-webkit-text-stroke: 1px #0B0E14;">Asset</span>
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+          <p class="font-pangram text-lg md:text-xl opacity-75 leading-relaxed max-w-xl">
+            Redefining retirement for SLM Ethiopia. We transformed Mr. Tesfaye Dessalegn's vision into a premier digital bridge between decades of expertise and the modern labor market.
+          </p>
+          <div class="flex flex-col md:flex-row justify-start md:justify-end gap-8 md:gap-12 text-[10px] uppercase tracking-[0.2em] opacity-50 mt-6 md:mt-0">
+            <p>Branding / Platform / Strategy</p>
+            <p>© 2026 Helm Creative</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Founder Section -->
+    <section class="py-20 md:py-32 px-6 md:px-16 lg:px-24 mb-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row-reverse gap-16 md:gap-24 items-center">
+          <div class="w-full lg:w-1/2">
+            <div class="relative group overflow-hidden border border-black/5 rounded-2xl ">
+              <div class="absolute top-6 left-6 z-20 bg-white/90 backdrop-blur-sm px-4 py-1 text-[10px] uppercase tracking-widest border border-black/10 rounded-full">
+                The Visionary
+              </div>
+              <img 
+                src="/portfolio/slm/cover.png" 
+                alt="Tesfaye Dessalegn SLM" 
+                class="w-full h-auto object-contain max-h-[600px] transition-all duration-700 group-hover:scale-[1.02]"
+              />
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2">
+            <span class="font-monument text-5xl text-[#f5bd02] mb-6 block">01</span>
+            <h2 class="font-monument text-4xl md:text-5xl uppercase leading-tight mb-8">Asset over <br/> Liability</h2>
+            <p class="font-pangram text-lg md:text-xl opacity-75 leading-relaxed mb-8">
+              Founder Mr. Tesfaye Dessalegn envisioned a world where seniors aren't sidelined. We helped move SLM from a "pre-retirement" concept to a high-value <strong class="font-bold text-[#0B0E14]">Job Market Platform</strong> where 30+ years of experience becomes a company's greatest competitive edge.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-8">
+              {['Strategic Pivot', 'Digital Transformation', 'Market Positioning'].map(tag => (
+                <span class="px-4 py-2 bg-white border border-black/10 rounded-full font-pangram text-xs uppercase tracking-widest">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Identity Section -->
+    <section class="bg-white py-20 md:py-32 px-6 md:px-16 lg:px-24 border-y border-black/5 mb-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="aspect-square flex items-center justify-center p-8 md:p-12 bg-white rounded-2xl">
+                <img src="/portfolio/slm/slm_logo_black.png" class="w-full h-auto object-contain max-h-40" alt="SLM Logo Black" />
+              </div>
+              <div class="aspect-square bg-[#0B0E14] flex items-center justify-center p-8 md:p-12 rounded-2xl">
+                <img src="/portfolio/slm/slm_logo.png" class="w-full h-auto object-contain max-h-40" alt="SLM Logo White"/>
+              </div>
+              <div class="col-span-2 aspect-[16/9] bg-gradient-to-br from-[#f5bd02]/5 to-transparent border border-black/5 rounded-2xl flex items-center justify-center p-8">
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-[#0F243E]"></div>
+                    <span class="font-pangram text-xs uppercase tracking-widest opacity-60 mt-2">Midnight Navy</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-[#F7F3ED]"></div>
+                    <span class="font-pangram text-xs uppercase tracking-widest opacity-60 mt-2">Alabaster</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-[#B8912F] border border-black/10"></div>
+                    <span class="font-pangram text-xs uppercase tracking-widest opacity-60 mt-2">Royal Gold</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="font-monument text-5xl text-[#f5bd02] mb-6 block">02</span>
+            <h2 class="font-monument text-4xl md:text-5xl uppercase leading-tight mb-8">Senior <br/> Authority</h2>
+            <p class="font-pangram text-lg md:text-xl opacity-75 leading-relaxed mb-8">
+              The identity balances institutional trust with modern tech. We used a "Legacy Gold" and "Professional Ink" palette to appeal to both corporate HRs and seasoned veterans, establishing authority while maintaining approachability.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              {['Trust-Centric UI', 'Expertise Tags', 'Legacy Branding', 'Digital Authority'].map(tag => (
+                <span class="px-4 py-2 bg-white border border-black/10 rounded-full font-pangram text-xs uppercase tracking-widest">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Showcase -->
+    <section class="py-20 md:py-32">
+      <div class="px-6 md:px-16 lg:px-24 mb-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+          <div>
+            <span class="font-monument text-5xl text-[#f5bd02] mb-4 block">03</span>
+            <h2 class="font-monument text-4xl md:text-6xl uppercase leading-tight">The<br/>Marketplace</h2>
+          </div>
+          <p class="max-w-sm font-pangram opacity-60 text-sm uppercase tracking-widest leading-loose md:text-right">
+            A specialized portal at slmethiopia.com designed for clarity, accessibility, and high-level matching between experienced professionals and forward-thinking companies.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Video Container -->
+      <div class="relative w-full border-y  py-12 md:py-20">
+        <div class="max-w-full mx-auto px-6 md:px-12">
+          <div class="relative  md:rounded-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
+            <video 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              class="w-full h-auto object-cover aspect-video md:aspect-[16/9]"
+            >
+              <source src="/portfolio/slm/slm_walkthrough.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="absolute bottom-6 left-6 z-20">
+              <div class="flex items-center gap-3 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-full">
+                <div class="flex gap-1">
+                  <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                </div>
+                <span class="font-pangram text-xs text-white/70 uppercase tracking-widest">slmethiopia.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section class="py-20 md:py-32 px-6 md:px-16 lg:px-24 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {[
+            {
+              number: '01',
+              title: 'Expert Profiles',
+              description: 'Detailed veteran profiles highlighting decades of industry-specific experience and specialized skills.'
+            },
+            {
+              number: '02',
+              title: 'Smart Matching',
+              description: 'connecting companies with professionals based on expertise, industry, and project needs.'
+            },
+            {
+              number: '03',
+              title: 'Secure Platform',
+              description: 'Enterprise-grade security ensuring confidential information and professional interactions remain protected.'
+            }
+          ].map(feature => (
+            <div class="group">
+              <span class="font-monument text-4xl text-[#f5bd02] mb-4 block opacity-70 group-hover:opacity-100 transition-opacity">
+                {feature.number}
+              </span>
+              <h3 class="font-monument text-2xl uppercase mb-4">{feature.title}</h3>
+              <p class="font-pangram opacity-70 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 md:py-40 text-center px-6 border-t border-black/5 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="font-monument text-3xl md:text-5xl uppercase opacity-10 mb-8 md:mb-12">
+          Building the future of work
+        </h3>
+        
+        <p class="font-pangram text-lg opacity-60 mb-12 max-w-2xl mx-auto">
+          Ready to transform your vision into a market-leading platform? Let's build something extraordinary together.
+        </p>
+        
+        <a 
+          href="https://t.me/alpha_valley" 
+          target="_blank" 
+          class="interactive-btn inline-block relative px-12 py-5 font-monument text-lg md:text-xl uppercase tracking-tighter text-[#0B0E14] bg-transparent border border-black/20 rounded-full group overflow-hidden"
+        >
+          <span class="relative z-10">Let's Work Together</span>
+          <div class="btn-gradient absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--x)_var(--y),_#f5bd02_0%,_transparent_60%)]"></div>
+        </a>
+        
+        <div class="mt-16 pt-8 border-t border-black/5">
+          <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-xs uppercase tracking-widest opacity-40">
+            <a href="/" class="hover:opacity-70 transition-opacity">← Back to Home</a>
+            <a href="/work" class="hover:opacity-70 transition-opacity">View All Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .stroke-dark {
+    -webkit-text-stroke: 1px rgba(11, 14, 20, 0.15);
+  }
+  
+  /* Image and content protection */
+  img, video {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+  
+  html, body {
+    background-color: #f5f5f5;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+
+  /* Animations */
+  @keyframes fade-in {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+
+  /* Interactive button effect */
+  .interactive-btn {
+    --x: 50%;
+    --y: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .interactive-btn:hover {
+    border-color: #f5bd02;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(245, 189, 2, 0.15);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Responsive video container */
+  @media (max-width: 768px) {
+    video {
+      aspect-ratio: 16/9;
+    }
+  }
+
+  /* Improved typography spacing */
+  p {
+    line-height: 1.7;
+  }
+
+  /* Subtle hover effects */
+  .group:hover .group-hover\:scale-\[1\.02\] {
+    transform: scale(1.02);
+  }
+</style>
+
+<script>
+  // Interactive button mouse tracking
+  document.addEventListener('DOMContentLoaded', () => {
+    const interactiveBtn = document.querySelector('.interactive-btn');
+    
+    if (interactiveBtn) {
+      interactiveBtn.addEventListener('mousemove', (e) => {
+        const rect = interactiveBtn.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        interactiveBtn.style.setProperty('--x', `${x}%`);
+        interactiveBtn.style.setProperty('--y', `${y}%`);
+      });
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

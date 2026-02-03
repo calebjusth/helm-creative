@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Abulo Entertainment Case Study">
+  <div class="bg-[#0B0E14] text-[#f5f5f5] overflow-x-hidden mt-25">
+    
+    <header class="min-h-[80vh] flex flex-col justify-center px-6 md:px-16 lg:px-24 border-b border-white/5">
+      <div class="max-w-7xl mx-auto w-full">
+        <span class="font-pangram-bold text-[#f5bd02] text-xs uppercase tracking-[0.5em] block animate-fade-in mb-8">
+          The Evolution of Abulo
+        </span>
+        <h1 class="font-monument text-6xl md:text-8xl lg:text-[12vw] uppercase leading-[0.8] mb-12">
+          New <br /> <span class="text-transparent stroke-white" style="-webkit-text-stroke: 1px #f5f5f5;">Legacy</span>
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+          <p class="font-pangram text-xl opacity-60 leading-relaxed max-w-xl">
+            From a static digital tribute to a powerhouse entertainment ecosystem. We redefined the brand identity of Hadiya's legendary voice for a global stage.
+          </p>
+          <div class="flex justify-start md:justify-end gap-12 text-[10px] uppercase tracking-[0.2em] opacity-40">
+            <p>Strategy / Identity / Web</p>
+            <p>© 2026 Helm Creative</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="py-32 md:py-48 px-6 md:px-16 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-20 items-center">
+          <div class="w-full lg:w-1/2">
+            <div class="relative group overflow-hidden">
+               <div class="absolute top-6 left-6 z-20 bg-black/60 backdrop-blur-md px-4 py-1 text-[10px] uppercase tracking-widest border border-white/10">Legacy Version</div>
+               <img 
+                src="/portfolio/abulo/abulo_prev.jpg" 
+                alt="Abulo Legacy Website" 
+                draggable="false" ondragstart="return false" oncontextmenu="return false"
+                class="w-full aspect-[4/3] object-cover grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-1000"
+              />
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2">
+            <span class="font-monument text-5xl text-[#f5bd02] mb-6 block">01</span>
+            <h2 class="font-monument text-4xl md:text-5xl uppercase leading-tight mb-8">The Pivot</h2>
+            <p class="font-pangram text-lg opacity-60 leading-relaxed">
+              We shortened the gap between history and the future. By moving away from a "memorial" feel, we unlocked a business model focused on <strong>Production, Marketing, and Film.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#f5f5f5] text-[#0B0E14] py-32 md:py-48 px-6 md:px-16 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <div class="order-2 lg:order-1">
+             <div class="grid grid-cols-2 gap-4">
+                <div class="aspect-square bg-white shadow-sm flex items-center justify-center p-12">
+                  <img src="/companies/abulo.png" draggable="false" ondragstart="return false" oncontextmenu="return false" class="w-full h-auto object-contain" alt="Logo" />
+                </div>
+                <div class="aspect-square bg-[#0B0E14] text-white flex items-center justify-center font-monument text-2xl">
+                  <img src="/portfolio/abulo/logo_white.png" draggable="false" ondragstart="return false" oncontextmenu="return false" class="w-full h-auto object-contain" alt="Logo Inverted" />
+                </div>
+                <div class="col-span-2 aspect-[2/1]">
+                <img src="/portfolio/abulo/colors.png" alt="Color Palette" draggable="false" ondragstart="return false" oncontextmenu="return false" class="w-full h-full object-cover"/>
+                </div>
+             </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="font-monument text-5xl text-[#f5bd02] mb-6 block">02</span>
+            <h2 class="font-monument text-4xl md:text-5xl uppercase leading-tight mb-8">Visual <br/> Essence</h2>
+            <p class="font-pangram text-lg text-black/60 leading-relaxed mb-8">
+              A brand system that honors Hadiya heritage while utilizing high-contrast, modern aesthetics for the Ethiopian tech landscape.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              {['Custom Type', 'Heritage Colors', 'Modern Grid'].map(tag => (
+                <span class="px-4 py-2 border border-black/10 rounded-full font-pangram text-xs uppercase tracking-widest">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 md:py-48">
+       <div class="px-6 md:px-16 lg:px-24 mb-16">
+          <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+            <div>
+               <span class="font-monument text-5xl text-[#f5bd02] mb-6 block">03</span>
+               <h2 class="font-monument text-4xl md:text-6xl uppercase">Digital Stage</h2>
+            </div>
+            <p class="max-w-sm font-pangram opacity-50 text-sm uppercase tracking-widest leading-loose">
+               Cinematic interface designed for high-conversion production bookings.
+            </p>
+          </div>
+       </div>
+       
+       <div class="w-full bg-white/5 aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            preload="metadata"
+            controlsList="nodownload"
+            oncontextmenu="return false"
+            class="w-full h-full object-cover"
+          >
+            <source src="/portfolio/abulo/01_compressed.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+       </div>
+    </section>
+
+    <section class="pb-32 px-6">
+      <img src="/portfolio/abulo/abulo_website.jpg" alt="Brand Board" draggable="false" ondragstart="return false" oncontextmenu="return false" class="w-full max-w-7xl mx-auto grayscale hover:grayscale-0 transition-all duration-700"/>
+    </section>
+
+    <section class="py-40 text-center px-6 border-t border-white/5">
+      <h3 class="font-monument text-3xl md:text-5xl capitalize opacity-20 mb-12">Your project could be here</h3>
+      
+      <a 
+        href="https://t.me/alpha_valley" 
+        target="_blank" 
+        class="interactive-btn inline-block relative px-12 py-6 font-monument text-lg md:text-xl uppercase tracking-tighter text-white bg-transparent border border-white/20 group overflow-hidden"
+      >
+        <span class="relative z-10  capitalize">Let's Start a Dream</span>
+        <div class="btn-gradient absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--x)_var(--y),_#f5bd02_0%,_transparent_50%)]"></div>
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  /* Protection script: prevents basic download actions (defense-in-depth) */
+  (function(){
+    // Block right-click globally
+    document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, {capture:true});
+
+    // Block keyboard shortcuts commonly used to view source / save / devtools
+    document.addEventListener('keydown', function(e){
+      const key = e.key || e.keyCode;
+      if ((e.ctrlKey || e.metaKey) && (key === 's' || key === 'S' || key === 'u' || key === 'U' || key === 'p' || key === 'P')) {
+        e.preventDefault();
+      }
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c'))) {
+        e.preventDefault();
+      }
+    }, {capture:true});
+
+    // Disable copy/cut and text selection
+    document.addEventListener('copy', function(e){ e.preventDefault(); }, {capture:true});
+    document.addEventListener('cut', function(e){ e.preventDefault(); }, {capture:true});
+    document.addEventListener('selectstart', function(e){ e.preventDefault(); }, {capture:true});
+
+    // Make images and videos non-draggable and block their context menu
+    function protectMedia(){
+      const imgs = Array.from(document.querySelectorAll('img'));
+      imgs.forEach(img => {
+        try{ img.setAttribute('draggable','false'); img.ondragstart = function(){ return false; }; img.addEventListener('contextmenu', function(e){ e.preventDefault(); }); }
+        catch(e){}
+      });
+      const vids = Array.from(document.querySelectorAll('video'));
+      vids.forEach(v => {
+        try{ v.setAttribute('controlsList','nodownload'); v.addEventListener('contextmenu', function(e){ e.preventDefault(); }); }
+        catch(e){}
+      });
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', protectMedia);
+    else protectMedia();
+  })();
+
+  // Script for the interactive gradient button
+  const btn = document.querySelector('.interactive-btn');
+  if (btn) {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      btn.style.setProperty('--x', `${x}%`);
+      btn.style.setProperty('--y', `${y}%`);
+    });
+  }
+</script>
+
+<style>
+  .stroke-white {
+    -webkit-text-stroke: 1px rgba(245, 245, 245, 0.5);
+  }
+
+  /* FF Autoplay Fix: Sometimes it needs a subtle push */
+  video::-moz-visual-viewer-container {
+    background-color: transparent;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+
+  .interactive-btn {
+    --x: 50%;
+    --y: 50%;
+  }
+
+  /* Protection CSS: reduces ability to select or drag content */
+  html, body, * {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+
+  img, video {
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-touch-callout: none !important;
+    touch-action: manipulation;
+  }
+</style>
