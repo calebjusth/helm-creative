@@ -1,0 +1,363 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// SEO Metadata
+const title = "Project Cost Estimator | HELM™";
+const description = "Get an instant ballpark estimate for your next digital project with Helm Creative Agency.";
+---
+
+<Layout title={title} description={description}>
+  <section class="relative pt-32 pb-16 px-6 md:px-12 bg-[#0B0E14] flex flex-col items-center text-center z-20">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="font-monument text-3xl md:text-4xl text-white mb-4 tracking-wide uppercase">
+        Project Cost <span class="text-[#f5bd02]">Estimator</span>
+      </h1>
+      <p class="font-pangram  text-lg">
+        Professional estimates for websites, web apps, and mobile platforms.
+      </p>
+    </div>
+  </section>
+
+  <section class="pt-12 pb-24 px-4 md:px-8 bg-gray-50 text-[#111]" id="calculator-section">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <div class="lg:col-span-2 space-y-8 bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+          
+          <div>
+            <label for="project-type" class="block text-sm font-bold uppercase tracking-wider mb-3 text-black">1. Select Project Type</label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="project-search" 
+                placeholder="Search project types..."
+                class="w-full bg-white border-2 border-gray-200 p-4 rounded-xl text-lg font-medium focus:border-[#f5bd02] outline-none transition-colors text-black mb-2"
+              >
+              <select id="project-type" class="w-full bg-white border-2 border-gray-200 p-4 rounded-xl text-lg font-medium focus:border-[#f5bd02] outline-none transition-colors cursor-pointer text-black">
+                <option value="" disabled selected>Choose a category...</option>
+              </select>
+            </div>
+            
+            <div id="included-box" class="mt-4 p-4 bg-[#FFF9C4] border-2 border-[#f5bd02] rounded-xl hidden">
+              <span class="block font-bold text-xs uppercase mb-1 text-black">Package Details:</span>
+              <p id="included-list" class="text-sm leading-relaxed text-black font-medium"></p>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-end mb-3">
+              <label class="block text-sm font-bold uppercase tracking-wider text-black">2. Additional Pages</label>
+              <span id="page-count-display" class="bg-black text-white px-3 py-1 rounded-full text-xs font-bold">Standard Only</span>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
+              <input type="range" id="page-slider" min="0" max="30" value="0" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-[#f5bd02]">
+              <div class="flex justify-between mt-2 text-[10px] font-bold  uppercase">
+                <span>Standard Package</span>
+                <span>30+ Pages</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold uppercase tracking-wider mb-4 text-black">3. Power-Ups (Add-ons)</label>
+            <div id="features-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              </div>
+          </div>
+        </div>
+
+        <aside class="space-y-4">
+          <div class="bg-white border-2 border-black p-8 rounded-2xl shadow-xl sticky top-24">
+            <div class="flex justify-between items-center border-b-2 border-black pb-4 mb-6">
+              <h3 class="font-monument text-xl uppercase italic text-black">Invoice Estimate</h3>
+              <span id="location-badge" class="text-[10px] bg-gray-100 px-2 py-1 rounded border border-gray-300 font-bold uppercase text-black">...</span>
+            </div>
+
+            <div class="space-y-4 mb-8">
+              <div class="flex justify-between text-sm">
+                <span class=" font-medium">Base Development</span>
+                <span id="summary-base" class="font-bold text-black">-</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class=" font-medium">Extra Page Design</span>
+                <span id="summary-pages" class="font-bold text-black">-</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class=" font-medium">Add-on Features</span>
+                <span id="summary-addons" class="font-bold text-black">-</span>
+              </div>
+              
+              <div class="pt-4 border-t-2 border-black flex justify-between items-center">
+                <span class="font-bold text-lg uppercase text-black">Estimated Total</span>
+                <div class="text-right">
+                    <span id="total-price" class="block font-monument text-3xl text-[#f5bd02]">0</span>
+                    <span id="timeline-display" class="text-[10px] font-bold uppercase ">Timeline: 2-3 Weeks</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+                <button id="whatsapp-btn" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md uppercase text-sm tracking-wider">
+                    <span>Send to WhatsApp</span>
+                </button>
+                <button id="telegram-btn" class="w-full bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md uppercase text-sm tracking-wider">
+                    <span>Send to Telegram</span>
+                </button>
+                <p class="text-center text-[10px]  font-bold tracking-tight">
+                    This is a ballpark estimate. Final quote provided after discovery.
+                </p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const PRICING = {
+      types: {
+        portfolio: { name: "Personal Portfolio", price_etb: 25000, price_usd: 650, desc: "Perfect for creatives showcasing work." },
+        hotel: { name: "Hotel Website", price_etb: 75000, price_usd: 850, desc: "Booking, Landing page, Contact us." },
+        job_marketplace: { name: "Job Marketplace", price_etb: 77000, price_usd: 2500, desc: "User profiles, CV uploads, job posting board, and search filters." },
+        mobile_app: { name: "Mobile App (iOS & Android)", price_etb: 180000, price_usd: 4500, desc: "Cross-platform mobile app published to App Store & Play Store." },
+        saas_mvp: { name: "SaaS / Web App MVP", price_etb: 210000, price_usd: 5500, desc: "Complex logic, user authentication, dashboard, and database design." },
+        elearning: { name: "E-Learning Platform", price_etb: 145000, price_usd: 3500, desc: "LMS, student dashboards, and video course hosting." },
+        ngo: { name: "NGO / Non-Profit", price_etb: 35000, price_usd: 950, desc: "Donation integration, storytelling layout, and event calendar." },
+        church: { name: "Religious / Church", price_etb: 30000, price_usd: 850, desc: "Sermon archives, event calendars, and online giving." },
+        real_estate: { name: "Real Estate Listing", price_etb: 65000, price_usd: 1900, desc: "Property gallery, map integration, and agent profiles." },
+        ecommerce: { name: "E-Commerce Store", price_etb: 110000, price_usd: 2800, desc: "Full online shop with payment gateways and inventory." },
+        corporate: { name: "Corporate / Business", price_etb: 55000, price_usd: 1200, desc: "Professional presence for established companies." },
+        restaurant: { name: "Restaurant / Food Service", price_etb: 60000, price_usd: 1400, desc: "Menu display, online ordering, table reservations, and delivery integration." },
+        medical: { name: "Medical / Healthcare", price_etb: 85000, price_usd: 2000, desc: "Doctor profiles, appointment booking, patient portals, and service listings." },
+        directory: { name: "Directory / Listing Site", price_etb: 90000, price_usd: 2200, desc: "Business directories, product comparisons, review systems, and search filters." },
+        travel_agency: { name: "Travel Agency / Tour Booking", price_etb: 80000, price_usd: 1800, desc: "Tour packages, booking system, itinerary planner, and payment integration." },
+        entertainment: { name: "Entertainment / Media", price_etb: 95000, price_usd: 2400, desc: "Streaming platform, podcast hosting, video galleries, and content management." },
+        membership: { name: "Membership Website", price_etb: 120000, price_usd: 3000, desc: "Paid content, subscription management, gated access, and user management." },
+        consulting: { name: "Consulting / Professional Services", price_etb: 50000, price_usd: 1100, desc: "Case studies, client portals, service packages, and booking system." },
+        government: { name: "Government / Municipal", price_etb: 90000, price_usd: 2100, desc: "Public information, form downloads, department directories, and announcements." },
+        education: { name: "Educational Institution", price_etb: 70000, price_usd: 1600, desc: "School/college website with faculty, courses, admissions, and event calendar." },
+        legal: { name: "Legal / Law Firm", price_etb: 65000, price_usd: 1500, desc: "Practice areas, attorney profiles, case studies, and client intake forms." },
+        wedding: { name: "Wedding / Event Planning", price_etb: 55000, price_usd: 1300, desc: "Portfolio galleries, vendor lists, planning tools, and client inquiries." },
+        forum: { name: "Forum / Community Platform", price_etb: 100000, price_usd: 2600, desc: "Threaded discussions, user roles, moderation tools, and user profiles." },
+        dating: { name: "Dating / Social Network", price_etb: 150000, price_usd: 3800, desc: "User matching, chat/messaging, profile systems, and privacy features." },
+        landing_page: { name: "Basic Landing Page", price_etb: 15000, price_usd: 400, desc: "Single page website with contact form and essential information." },
+        enterprise: { name: "Enterprise Solution", price_etb: 300000, price_usd: 7500, desc: "Complex enterprise system with custom workflows and multiple modules." }
+      },
+      features: [
+        { id: 'seo', name: 'Advanced SEO Setup', price_etb: 8000, price_usd: 400 },
+        { id: 'cms', name: 'Custom CMS (Admin Panel)', price_etb: 20000, price_usd: 600 },
+        { id: 'payment', name: 'Payment Integration', price_etb: 8000, price_usd: 250 },
+        { id: 'multilang', name: 'Multi-Language (Amh/Eng)', price_etb: 12000, price_usd: 500 },
+        { id: 'chat', name: 'Live Chat Integration', price_etb: 20000, price_usd: 450 },
+        { id: 'copy', name: 'Copywriting', price_etb: 8000, price_usd: 550 },
+        { id: 'maintenance', name: '1 Year Maintenance', price_etb: 30000, price_usd: 1000 }
+      ],
+      page_cost: { etb: 2000, usd: 100 }
+    };
+
+    const state = {
+      region: 'global',
+      currency: 'USD',
+      selectedType: '',
+      extraPages: 0,
+      selectedFeatures: new Set(),
+      total: 0
+    };
+
+    function $(id) { return document.getElementById(id); }
+
+    function formatCurrency(num) {
+      if (state.region === 'ethiopia') return num.toLocaleString() + ' ETB';
+      return '$' + num.toLocaleString();
+    }
+
+    async function detectRegion() {
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        if (data && data.country_code === 'ET') {
+          state.region = 'ethiopia';
+        }
+      } catch (e) { console.warn("Location detection blocked. Defaulting to International."); }
+    }
+
+    function updateCalculation() {
+      let base = 0, pages = 0, addons = 0;
+      if (state.selectedType) {
+        const t = PRICING.types[state.selectedType];
+        base = state.region === 'ethiopia' ? t.price_etb : t.price_usd;
+        $('included-list').textContent = t.desc;
+        $('included-box').classList.remove('hidden');
+        const longProjects = ['mobile_app', 'saas_mvp', 'elearning', 'job_marketplace', 'dating', 'forum', 'membership', 'enterprise'];
+        $('timeline-display').textContent = longProjects.includes(state.selectedType) ? 'Timeline: 6-10 Weeks' : 'Timeline: 2-3 Weeks';
+      }
+      pages = state.extraPages * (state.region === 'ethiopia' ? PRICING.page_cost.etb : PRICING.page_cost.usd);
+      state.selectedFeatures.forEach(id => {
+        const f = PRICING.features.find(x => x.id === id);
+        addons += state.region === 'ethiopia' ? f.price_etb : f.price_usd;
+      });
+      state.total = base + pages + addons;
+      $('summary-base').textContent = base > 0 ? formatCurrency(base) : '-';
+      $('summary-pages').textContent = pages > 0 ? formatCurrency(pages) : '-';
+      $('summary-addons').textContent = addons > 0 ? formatCurrency(addons) : '-';
+      $('total-price').textContent = formatCurrency(state.total);
+    }
+
+    function renderFeatures() {
+      const grid = $('features-grid');
+      grid.innerHTML = '';
+      PRICING.features.forEach(feat => {
+        const card = document.createElement('div');
+        card.className = 'feature-card cursor-pointer border-2 border-gray-200 p-4 rounded-xl transition-all hover:border-[#f5bd02] bg-white group';
+        const priceVal = state.region === 'ethiopia' ? feat.price_etb : feat.price_usd;
+        card.innerHTML = `
+          <div class="flex justify-between items-center pointer-events-none">
+            <div>
+              <h4 class="font-bold text-sm uppercase text-black">${feat.name}</h4>
+              <span class="text-xs  font-bold">+${formatCurrency(priceVal)}</span>
+            </div>
+            <div class="w-5 h-5 border-2 border-gray-300 rounded-full bg-white group-hover:border-[#f5bd02]"></div>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          if (state.selectedFeatures.has(feat.id)) {
+            state.selectedFeatures.delete(feat.id);
+            card.style.borderColor = "#e5e7eb";
+            card.style.backgroundColor = "#fff";
+          } else {
+            state.selectedFeatures.add(feat.id);
+            card.style.borderColor = "#f5bd02";
+            card.style.backgroundColor = "#FFF9C4";
+          }
+          updateCalculation();
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function filterOptions(searchTerm) {
+      const select = $('project-type');
+      const options = Array.from(select.options);
+      
+      // Reset all options first
+      options.forEach(option => {
+        option.style.display = '';
+      });
+      
+      if (searchTerm.trim() === '') {
+        return;
+      }
+      
+      const searchLower = searchTerm.toLowerCase();
+      options.forEach(option => {
+        if (option.value !== '') {
+          const text = option.textContent.toLowerCase();
+          if (!text.includes(searchLower)) {
+            option.style.display = 'none';
+          }
+        }
+      });
+      
+      // If no options match, show the placeholder
+      const visibleOptions = options.filter(opt => opt.style.display !== 'none');
+      if (visibleOptions.length === 1 && visibleOptions[0].value === '') {
+        visibleOptions[0].textContent = 'No matching project types found';
+      }
+    }
+
+    function populateProjectDropdown() {
+      const select = $('project-type');
+      select.innerHTML = '<option value="" disabled selected>Choose a category...</option>';
+      
+      // Sort types alphabetically by name
+      const sortedEntries = Object.entries(PRICING.types).sort((a, b) => 
+        a[1].name.localeCompare(b[1].name)
+      );
+      
+      sortedEntries.forEach(([key, val]) => {
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = val.name;
+        select.appendChild(opt);
+      });
+    }
+
+    async function init() {
+      await detectRegion();
+      $('location-badge').textContent = state.region === 'ethiopia' ? 'Ethiopia (Local)' : 'Global (USD)';
+      
+      populateProjectDropdown();
+      renderFeatures();
+
+      // Search functionality
+      $('project-search').addEventListener('input', (e) => {
+        filterOptions(e.target.value);
+      });
+
+      $('project-search').addEventListener('focus', () => {
+        $('project-type').size = 6; // Show multiple options when searching
+      });
+
+      $('project-search').addEventListener('blur', () => {
+        setTimeout(() => {
+          $('project-type').size = 1;
+        }, 200);
+      });
+
+      // Clear search when dropdown changes
+      $('project-type').addEventListener('change', (e) => {
+        state.selectedType = e.target.value;
+        $('project-search').value = '';
+        updateCalculation();
+      });
+
+      $('page-slider').addEventListener('input', (e) => {
+        state.extraPages = parseInt(e.target.value);
+        $('page-count-display').textContent = state.extraPages === 0 ? 'Standard Only' : `+${state.extraPages} Extra Pages`;
+        updateCalculation();
+      });
+
+      // Social Links
+      const buildMsg = () => {
+        const type = state.selectedType ? PRICING.types[state.selectedType].name : "Custom Web Project";
+        return encodeURIComponent(`Hi Helm Creative Agency, I've generated an estimate for a ${type}. Total: ${formatCurrency(state.total)}. I'd like to talk details!`);
+      };
+      
+      $('whatsapp-btn').onclick = () => window.open(`https://wa.me/+251977240817?text=${buildMsg()}`, '_blank');
+      $('telegram-btn').onclick = () => window.open(`https://t.me/alpha_valley?text=${buildMsg()}`, '_blank');
+    }
+
+    init();
+  </script>
+</Layout>
+
+<style is:global>
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #f5bd02;
+    border: 4px solid #000;
+    cursor: pointer;
+  }
+  #project-type option {
+      color: black;
+      background: white;
+  }
+  
+  /* Hide scrollbar for search input suggestions */
+  #project-type::-webkit-scrollbar {
+    width: 8px;
+  }
+  #project-type::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  #project-type::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  #project-type::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>

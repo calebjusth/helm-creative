@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 
 const column1 = ["work/evolve_work.jpg", "work/slm_work.jpg", "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80"];
 
-const column2 = ["work/abulo_work.jpg", "work/ephrat_work.jpg", "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80"];
+const column2 = ["work/abulo_work.jpg", "work/ephrat_work.jpg", "work/yeru_work.jpg"];
 
 const column3 = ["https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80", "work/dimma_work.jpg", "work/ggd_work.jpg"];
 
@@ -26,6 +26,7 @@ const logosRow1 = [
   { name: 'Arada', src: 'companies/arada.png' },
   { name: 'Abulo', src: 'companies/abulo.png' }, 
   { name: 'Evolve', src: 'companies/evolve.png' },
+  { name: 'Yeru', src: 'companies/yeru.png' },
 ];
 
 
@@ -79,6 +80,14 @@ const workProjects = [
   {
     image: 'work/dimma_work.jpg',
     service: 'Web Development',
+    year: '2025',
+    url: '#',
+    caseStudy: 'Case Study Coming Soon'
+  },
+
+  {
+    image: 'work/yeru_work.jpg',
+    service: 'SEO Strategy',
     year: '2025',
     url: '#',
     caseStudy: 'Case Study Coming Soon'
@@ -196,7 +205,7 @@ const workProjects = [
         </p>
         <div class="pt-4">
           <button id="cinematic-btn" class="relative overflow-hidden bg-[#0B0E14] text-[#f5f5f5] px-10 py-5 rounded-full font-pangram-bold text-xs uppercase tracking-widest hover:bg-[#f5bd02] hover:text-[#0B0E14] transition-colors duration-300">
-            <a class="btn-text relative z-10 block" href="https://t.me/alpha_valley" target="_blank">Let's create your dream</a>
+            <a class="btn-text relative z-10 block" href="/calculator">Calculate Price</a>
             <div class="absolute inset-0 bg-white/20 scale-0 rounded-full transition-transform duration-500 ease-out origin-center" id="btn-ripple"></div>
           </button>
         </div>
