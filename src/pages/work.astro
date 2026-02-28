@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const workProjects = [
+  {
+    image: '/work/evolve_work.jpg',
+    service: 'Corporate Web Development',
+    description: 'High-performance corporate platform built for scalability.',
+    year: '2025',
+    url: '#',
+    caseStudy: 'Case Study Coming Soon',
+    className: 'md:col-span-2 md:row-span-2'
+  },
+  {
+    image: '/work/abulo_work.jpg',
+    service: 'Complete Brand & Web Development',
+    description: 'Full-scale digital transformation and brand identity.',
+    year: '2026',
+    url: '/project1',
+    caseStudy: 'View Project',
+    className: 'md:col-span-2 md:row-span-1'
+  },
+  {
+    image: '/work/ephrat_work.jpg',
+    service: 'Web Development',
+    description: 'Custom web solution with focus on user experience.',
+    year: '2025',
+    url: '#',
+    caseStudy: 'Case Study Coming Soon',
+    className: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    image: '/work/slm_work.jpg',
+    service: 'Complete Brand & Web Development',
+    description: 'Seamless integration of branding and modern web tech.',
+    year: '2026',
+    url: '/project2',
+    caseStudy: 'View Project',
+    className: 'md:col-span-1 md:row-span-2'
+  },
+  {
+    image: '/work/ggd_work.jpg',
+    service: 'SEO & Web Design',
+    description: 'Search engine optimized design focused on conversions.',
+    year: '2024',
+    url: '/project4',
+    caseStudy: 'View Case Study',
+    className: 'md:col-span-2 md:row-span-1'
+  },
+  {
+    image: '/work/dimma_work.jpg',
+    service: 'Web Development',
+    description: 'Technical implementation of a complex digital interface.',
+    year: '2025',
+    url: '#',
+    caseStudy: 'Case Study Coming Soon',
+    className: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    image: '/work/yeru_work.jpg',
+    service: 'SEO Strategy',
+    description: 'Data-driven SEO campaign for market dominance.',
+    year: '2025',
+    url: '/project3',
+    caseStudy: 'View Case Study',
+    className: 'md:col-span-1 md:row-span-1'
+  },
+  // NEW ABETU PROJECT ADDED
+  {
+    image: '/work/abetu.jpg',
+    service: 'Medical Center Web Development',
+    description: 'Clean, approachable healthcare website for Portland community clinic.',
+    year: '2026',
+    url: '/project5',
+    caseStudy: 'View Case Study',
+    className: 'md:col-span-2 md:row-span-1'
+  }
+];
+
+// Page SEO Meta
+const title = "Portfolio | Selected Digital Works & Web Development";
+const description = "Explore our portfolio of selected works featuring high-end web development, SEO strategies, and complete brand transformations including Abetu Medical Center.";
+---
+
+<Layout title={title} description={description}>
+  <section class="relative min-h-[60vh] flex flex-col items-center justify-center bg-[#0B0E14] text-[#f5f5f5] overflow-hidden" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="font-monument text-6xl md:text-8xl tracking-tight text-center">Selected Works</h1>
+    <p class="mt-4 font-pangram text-lg md:text-xl text-[#f5f5f5]/80 max-w-2xl text-center">Digital Craftsmanship at its Finest — Tailored Web Solutions & Brand Strategy</p>
+    <div id="mouse-glow" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  </section>
+
+  <section class="bg-[#0B0E14] py-20 px-4 md:px-10" aria-label="Project Portfolio">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
+      {workProjects.map((project) => (
+        <article 
+          class={`relative border border-[rgba(255,255,255,0.08)] overflow-hidden group rounded-2xl ${project.className}`}
+        >
+          <a href={project.url} class="block w-full h-full" aria-label={`View ${project.service} project completed in ${project.year}`}>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-transparent to-transparent opacity-60 z-10"></div>
+            
+            <img 
+              src={project.image} 
+              alt={`${project.service} Portfolio Project - ${project.year}`} 
+              loading="lazy"
+              width="800"
+              height="600"
+              class="w-full h-full object-cover grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+            />
+
+            <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <p class="text-[rgba(255,255,255,0.6)] font-pangram text-xs uppercase tracking-widest mb-2">{project.year}</p>
+              <h2 class="text-[#f5f5f5] font-monument text-lg md:text-xl leading-tight mb-4">{project.service}</h2>
+              <span class="inline-block h-[1px] w-0 group-hover:w-12 bg-[#f5f5f5] transition-all duration-500" aria-hidden="true"></span>
+            </div>
+
+            <div class="absolute inset-0 bg-[#0B0E14]/20 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-30">
+               <div class="px-6 py-3 border border-[#f5f5f5] text-[#f5f5f5] font-pangram text-sm tracking-widest uppercase hover:bg-[#f5f5f5] hover:text-[#0B0E14] transition-colors">
+                 {project.caseStudy}
+               </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Selected Works Portfolio",
+    "description": "A showcase of web development, branding, and SEO projects including Abetu Medical Center.",
+    "hasPart": workProjects.map(p => ({
+      "@type": "CreativeWork",
+      "name": p.service,
+      "description": p.description,
+      "datePublished": p.year,
+      "url": p.url,
+      "image": p.image
+    }))
+  })}>
+  </script>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('article').forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+      observer.observe(el);
+    });
+
+    const glow = document.getElementById('mouse-glow');
+    document.addEventListener('mousemove', e => {
+      if (glow) {
+        glow.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.04), transparent 400px)`;
+      }
+    });
+  </script>
+</Layout>

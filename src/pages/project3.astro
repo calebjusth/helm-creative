@@ -1,0 +1,238 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Assets - now all being used
+const clientLogo = "companies/yeru.png"; 
+const interiorShot = "/portfolio/yeru/interior.jpg";
+const managerPfp = "/portfolio/yeru/elias.jpg";
+const heroImage = "/portfolio/yeru/yeru_bg.jpg";
+
+const accentColor = "#D2042D"; // Yeru Cherry Red
+const warmBgColor = "#FDF8F5"; // Warm off-white background
+const darkText = "#1A1A1A"; // Near-black for contrast
+const warmLight = "#FFF5F0"; // Lighter warm background
+---
+
+<Layout title="Yeru Beauty Salon Case Study | Helm">
+  <main class="bg-white text-[#1A1A1A] selection:bg-[#D2042D] selection:text-white overflow-x-hidden">
+    
+    <!-- Hero Section with heroImage -->
+    <section class="relative min-h-[90vh] flex items-center justify-center px-4 md:px-8 pt-20 overflow-hidden">
+      <!-- Hero Background Image - now visible -->
+      <div class="absolute inset-0 z-0">
+        <div 
+          class="absolute inset-0 bg-cover bg-center"
+          style={`background-image: url('${heroImage}')`}
+        ></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#FDF8F5] via-transparent to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto text-center flex flex-col items-center gap-8">
+        <!-- Client Logo Display -->
+        <div class="mb-4 backdrop-blur-sm p-4 rounded-2xl">
+          <div class="w-40 h-12 rounded flex items-center justify-center">
+            <img src="/companies/yeru.png" alt="Yeru Logo" class="w-full h-full object-contain" />
+          </div>
+        </div>
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/20 backdrop-blur-md font-pangram text-sm tracking-widest text-white">
+          <span class="w-2 h-2 rounded-full bg-[#D2042D]"></span>
+          Case Study • SEO & Strategy
+        </div>
+        
+        <h1 class="font-monument text-5xl md:text-7xl lg:text-9xl leading-[0.9] text-white">
+          The <span style={`color: ${accentColor}`}>Glow</span> <br/> Up
+        </h1>
+        
+        <p class="font-pangram text-xl md:text-2xl text-white/90 max-w-2xl leading-relaxed">
+          How we turned a hidden gem into the #1 destination for the Diaspora.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 mt-12 border-t border-white/30 pt-8">
+          <div class="text-center">
+            <span class="block font-monument text-3xl md:text-4xl text-black">+400%</span>
+            <span class="text-sm font-pangram text-black/80 tracking-wide">Profile Visits</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-monument text-3xl md:text-4xl text-black">Top 3</span>
+            <span class="text-sm font-pangram text-black/80 tracking-wide">Google Ranking</span>
+          </div>
+          <div class="hidden md:block text-center">
+            <span class="block font-monument text-3xl md:text-4xl text-black">5.0</span>
+            <span class="text-sm font-pangram text-black/80 tracking-wide">Star Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section with warm background - ALL TEXT DARK -->
+    <section class="py-24 px-4 md:px-8" style={`background-color: ${warmBgColor}`}>
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 order-2 lg:order-1">
+            <h2 class="font-monument text-3xl md:text-4xl leading-tight text-[#1A1A1A]">
+              Visible Beauty,<br/>
+              <span class="text-[#1A1A1A]/80">Hidden Online.</span>
+            </h2>
+            <div class="font-pangram text-lg text-[#1A1A1A] space-y-6 leading-relaxed">
+              <p>
+                <strong class="text-[#1A1A1A]">Yeru Beauty Salon</strong> had everything: a stunning interior, talented stylists, and a warm atmosphere. But digitally? They were invisible. 
+              </p>
+              <p class="text-[#1A1A1A]/90">
+                Local search results were dominated by competitors. The salon relied on walk-ins, missing a massive market of international visitors and the diaspora community looking for trusted, premium service in Addis.
+              </p>
+              <div class="pl-4 border-l-2 border-[#D2042D] italic text-[#1A1A1A] bg-white/50 p-4 rounded-r-lg">
+                <p class="font-pangram">"We were doing great work, but the people who needed us most couldn't find us."</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="order-1 lg:order-2 relative group">
+            <div class="absolute -inset-2 bg-[#D2042D] rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-500"></div>
+            <div class="relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-square">
+              <img 
+                src={interiorShot} 
+                alt="Yeru Beauty Salon Interior" 
+                class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg">
+                <p class="font-monument text-xs text-[#D2042D]">Location</p>
+                <p class="font-pangram text-sm font-bold text-[#1A1A1A]">4 kilo, Addis Ababa, ET</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section with alternating backgrounds - ALL TEXT DARK -->
+    <section class="py-24 px-4 md:px-8" style={`background-color: ${warmLight}`}>
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-16">
+          <div class="mb-8 md:mb-0">
+            <h2 class="font-monument text-3xl md:text-5xl text-[#1A1A1A] max-w-xl mb-4">
+              Manifesting <span style={`color: ${accentColor}`}>Traffic</span>
+            </h2>
+            <p class="font-pangram text-[#1A1A1A]/80 max-w-md">
+              We optimized their Google Business Profile, targeting keywords specific to international clients and premium care.
+            </p>
+          </div>
+          
+          <!-- Client Logo Display - Second location -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+            <p class="font-pangram text-sm text-[#1A1A1A]/60 mb-2">Featured Client</p>
+            <div class="w-32 h-10 rounded flex items-center justify-center">
+                <img src="/companies/yeru.png" alt="Yeru Logo" class="w-full h-full object-contain" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Testimonial 1 - DARK TEXT -->
+          <div class="bg-white border border-stone-200 p-8 rounded-2xl hover:border-[#D2042D]/50 transition-colors duration-300 shadow-sm">
+            <div class="flex gap-1 mb-4 text-[#D2042D]">★★★★★</div>
+            <p class="font-pangram text-[#1A1A1A] mb-6">"I just moved back to Addis and was desperate to find a good salon. Found Yeru on Google and it's exactly what I needed!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-stone-200">
+                <img 
+                  src="/portfolio/yeru/default.png" 
+                  alt="Testimonial 1" 
+                  class="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div>
+                <span class="font-pangram text-sm font-bold text-[#1A1A1A]">Sarah M.</span>
+                <p class="font-pangram text-xs text-[#1A1A1A]/70">Client</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 - DARK TEXT -->
+          <div class="bg-white border border-stone-200 p-8 rounded-2xl hover:border-[#D2042D]/50 transition-colors duration-300 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#D2042D] blur-[80px] opacity-10"></div>
+            <div class="flex gap-1 mb-4 text-[#D2042D]">★★★★★</div>
+            <p class="font-pangram text-[#1A1A1A] mb-6">Found them via Google Maps. The best service I've had in Addis. The staff is professional and the vibe is amazing."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-stone-200">
+                <img src="/portfolio/yeru/tes1.jpg" alt="James" class="w-full h-full object-cover rounded-full">
+              </div>
+              <div>
+                <span class="font-pangram text-sm font-bold text-[#1A1A1A]">Dayo C.</span>
+                <p class="font-pangram text-xs text-[#1A1A1A]/70">Client</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Card - BLACK BG, WHITE TEXT -->
+          <div class="bg-[#1A1A1A] p-8 rounded-2xl flex flex-col justify-center items-start text-white relative overflow-hidden">
+            <div class="relative z-10">
+              <p class="font-monument text-2xl mb-2 text-white">The Result</p>
+              <p class="font-pangram text-white/90">
+                Within weeks, Yeru became the top recommendation for <span class="font-bold underline">foreigners</span> and <span class="font-bold underline">diaspora</span> visiting the city.
+              </p>
+              <div class="mt-6 pt-6 border-t border-white/20">
+                <p class="font-pangram text-sm text-white/70">Client satisfaction</p>
+                <p class="font-monument text-3xl text-white mt-2">98%</p>
+              </div>
+            </div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D2042D]/20 rounded-full blur-xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section with warm background - ALL TEXT DARK -->
+    <section class="py-32 px-4 md:px-8" style={`background-color: ${warmBgColor}`}>
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="relative">
+          <div class="font-monument text-9xl text-stone-200 absolute -top-20 left-1/2 -translate-x-1/2 z-0 opacity-50">"</div>
+          
+          <blockquote class="relative z-10">
+            <p class="font-monument text-2xl md:text-4xl text-[#1A1A1A] leading-snug mb-12">
+              "We were hidden before. Now, foreigners see us as the <span class="underline decoration-[#D2042D] decoration-4 underline-offset-4">top choice</span>. I can't thank Helm enough."
+            </p>
+            
+            <div class="flex flex-col items-center gap-4">
+              <div class="p-1 rounded-full border-2 border-[#D2042D] bg-white">
+                <img 
+                  src={managerPfp} 
+                  alt="Elias Kefle" 
+                  class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-white"
+                />
+              </div>
+              
+              <div class="text-center">
+                <cite class="block font-monument text-lg not-italic text-[#1A1A1A]">Elias Kefle</cite>
+                <span class="font-pangram text-[#1A1A1A]/70 text-sm tracking-widest">Manager, Yeru Beauty Salon</span>
+              </div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Navigation - WHITE BG, DARK TEXT -->
+    <section class="border-t border-stone-200 py-12 px-4 md:px-8 bg-white">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="/" class="group flex items-center gap-4 font-pangram text-[#1A1A1A] hover:text-[#D2042D] transition-colors">
+          <span class="group-hover:-translate-x-2 transition-transform">←</span> Back to Home
+        </a>
+        
+        <!-- Final Client Logo Display -->
+        <div class="flex items-center gap-4">
+          <span class="font-pangram text-sm text-[#1A1A1A]/60">Featured in this case:</span>
+          <div class="w-24 h-8 rounded flex items-center justify-center">
+            <img src="/companies/yeru.png" alt="Yeru Logo" class="w-full h-full object-contain" />
+          </div>
+        </div>
+        
+        <a href="https://t.me/alpha_valley" target="_blank" class="px-8 py-3 bg-[#1A1A1A] text-white font-pangram rounded-full hover:bg-[#D2042D] transition-colors duration-300">
+          Start Your Project
+        </a>
+      </div>
+    </section>
+
+  </main>
+</Layout>

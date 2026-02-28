@@ -1,0 +1,41 @@
+---
+export interface Props {
+  logosRow1: Array<{ name: string; src: string }>;
+  logosRow2: Array<{ name: string; src: string }>;
+}
+const { logosRow1, logosRow2 } = Astro.props;
+---
+
+<section class="bg-[#f5f5f5] text-[#0B0E14] py-16 md:py-32 overflow-hidden z-10 relative">
+  <div class="w-full mb-12 md:mb-24 space-y-4 md:space-y-8">
+    <div class="text-center mb-6 md:mb-10 px-6">
+      <p class="font-pangram text-[10px] md:text-sm  tracking-[0.2em] opacity-60 text-black">
+        Trusted by
+      </p>
+    </div>
+
+    <div class="relative w-full overflow-hidden logo-marquee-wrapper mt-10 md:mt-20 flex items-center" data-direction="left">
+      <div class="logo-track flex gap-8 md:gap-24 w-max items-center opacity-80 grayscale cursor-grab active:cursor-grabbing">
+          {logosRow1.map((logo) => (
+            <img 
+              src={logo.src} 
+              alt={logo.name} 
+              class="h-6 md:h-10 w-auto object-contain shrink-0" 
+            />
+          ))}
+      </div>
+    </div>
+    
+    <div class="relative w-full overflow-hidden logo-marquee-wrapper mt-4 md:mt-6 flex items-center" data-direction="right">
+      <div class="logo-track flex gap-8 md:gap-24 w-max items-center opacity-80 grayscale cursor-grab active:cursor-grabbing">
+          {logosRow2.map((logo) => (
+            <img 
+              src={logo.src} 
+              alt={logo.name} 
+              class="h-6 md:h-10 w-auto object-contain shrink-0" 
+            />
+          ))}
+      </div>
+    </div>
+  </div>
+</section>

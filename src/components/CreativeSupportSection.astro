@@ -1,0 +1,97 @@
+---
+---
+
+<section id="creative-support" class="relative w-full bg-[#0F172A] px-4 md:px-8 py-24">
+  
+  <div class="relative max-w-7xl mx-auto bg-[#f5f5f5] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col items-center pt-24 md:pt-32">
+    
+    <div class="relative z-10 max-w-4xl text-center space-y-8 px-6 mb-16 md:mb-20">
+      <h2 class="font-pangram-bold text-5xl md:text-7xl text-[#0B0E14] tracking-tight cs-animate">
+        Elevate Your Production Capacity.
+      </h2>
+      
+      <p class="font-pragman text-xl md:text-2xl text-[#0B0E14]/70 max-w-2xl mx-auto cs-animate delay-100">
+        Helm boosts your team's output with on-demand creative support that scales with your vision.
+      </p>
+      
+      <div class="cs-animate delay-200 pt-6">
+        <a href="/calculator" class="inline-block bg-[#f5bd02] text-[#0B0E14] px-10 py-5 rounded-full font-pangram-bold tracking-widest hover:bg-[#0B0E14] hover:text-[#f5bd02] hover:scale-105 transition-all duration-300 shadow-xl shadow-[#f5bd02]/20">
+          Calculate your website
+        </a>
+      </div>
+    </div>
+
+    <div class="relative z-10 w-full  px-6 cs-animate delay-300">
+      <img 
+        src="/mockup.jpg" 
+        alt="Creative Support Mockup" 
+        class="w-full h-auto object-cover rounded-t-2xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] translate-y-4 hover:translate-y-0 transition-transform duration-700 ease-out" 
+      />
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Cinematic Blur-in Animation 
+    Starts blurry, invisible, and slightly pushed down, then locks into place.
+  */
+  #creative-support .cs-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(16px);
+    transition: opacity 1000ms cubic-bezier(0.2, 0.9, 0.2, 1), 
+                transform 1000ms cubic-bezier(0.2, 0.9, 0.2, 1),
+                filter 1000ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+  /* Triggers when JS adds the .in-view class */
+  #creative-support.in-view .cs-animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Stagger delays for that cascading 1-2-3 reveal */
+  #creative-support .delay-100 { transition-delay: 100ms; }
+  #creative-support .delay-200 { transition-delay: 200ms; }
+  #creative-support .delay-300 { transition-delay: 300ms; }
+
+  /* Accessibility: Disable heavy motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    #creative-support .cs-animate {
+      transition: none;
+      transform: none;
+      filter: none;
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  // IntersectionObserver to trigger the blur/fade in when scrolled into view
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById('creative-support');
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.classList.add('in-view');
+          obs.unobserve(el); // Only animate once
+        }
+      });
+    }, { threshold: 0.20 }); // Triggers when 20% of the section is visible
+    
+    obs.observe(el);
+    
+    // Astro view transitions support
+    document.addEventListener('astro:after-swap', () => { 
+      const newEl = document.getElementById('creative-support');
+      if (newEl) {
+        newEl.classList.remove('in-view');
+        obs.observe(newEl); 
+      }
+    });
+  });
+</script>

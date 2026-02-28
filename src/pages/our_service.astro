@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicesGrid from '../components/ServicesGrid.astro'; 
+import Process from '../components/Process.astro';
+---
+
+<Layout title="Our Services | Helm Creative" description="High-end branding, web design, app development, and digital marketing services by Helm Creative.">
+  
+  <section class="relative min-h-screen flex items-center bg-[#0F172A] overflow-hidden px-8 md:px-20 lg:px-32">
+    
+    <div class="absolute inset-0 z-0">
+        <div 
+          class="absolute inset-0 bg-cover bg-center grayscale opacity-30 scale-105"
+          style="background-image: url('/mockup.jpg');"
+        ></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/70 to-[#0F172A]/40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#0F172A_90%)]"></div>
+    </div>
+
+    <div id="glow-container" class="pointer-events-none absolute inset-0 z-10">
+      <div id="mouse-glow" class="absolute w-[500px] h-[500px] rounded-full bg-[#f5bd02]/10 blur-[120px] transition-opacity duration-500 opacity-0"></div>
+    </div>
+
+    <div class="container mx-auto relative z-20">
+      <div class="max-w-3xl">
+        <div class="flex flex-col space-y-10">
+          
+          <h1 class="font-monument text-5xl md:text-6xl lg:text-7xl text-[#f5f5f5] leading-[1.1] tracking-tighter uppercase">
+            We build <br /> <span class="text-[#f5bd02]">brands</span>.
+          </h1>
+          
+          <p class="font-pangram text-lg md:text-xl text-[#f5f5f5]/70 max-w-lg leading-relaxed italic">
+            From websites to apps and ads, we help your business grow and look great doing it. Simple ideas, big results.
+          </p>
+
+          <div class="pt-4">
+            <a 
+              href="https://t.me/alpha_valley" 
+              target="_blank" 
+              class="group inline-flex items-center gap-2 px-8 py-4 bg-[#f5bd02] text-[#0F172A] font-pangram-bold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-[#f5f5f5] hover:gap-4"
+            >
+              <span>Start a Project</span>
+              <span class="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute right-12 bottom-12 hidden lg:block overflow-hidden">
+        <div class="h-[1px] w-24 bg-[#f5bd02] mb-4 transform translate-x-full animate-slideIn"></div>
+        <p class="font-monument text-[#f5f5f5]/20 text-[10px] uppercase tracking-[0.6em]">
+            Service / Page
+        </p>
+    </div>
+  </section>
+
+  <ServicesGrid />
+
+  <Process />
+
+</Layout>
+
+<script>
+  const glow = document.getElementById('mouse-glow');
+  window.addEventListener('mousemove', (e) => {
+    if (glow) {
+        glow.style.opacity = '1';
+        glow.style.left = `${e.clientX - 250}px`;
+        glow.style.top = `${e.clientY - 250}px`;
+    }
+  });
+</script>
+
+<style>
+    section {
+        border-bottom: 1px solid rgba(245, 245, 245, 0.05);
+    }
+
+    h1, p, a {
+        animation: fadeInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+        to { transform: translateX(0); }
+    }
+</style>

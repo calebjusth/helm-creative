@@ -19,10 +19,18 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="fav.png" />
+
+    <!-- fav icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Optional: Theme color for mobile browsers -->
+    <meta name="theme-color" content="#0C2320" />
     <meta name="generator" content={Astro.generator} />
     
-    <title>{title} | HELM™</title>
+    <title>{title} | Ethiopia Web Development | HELM™</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
@@ -38,11 +46,23 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+    <style global>
+      img, .marquee-col img, .logo-track img, .relative img {
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+      .image-protection { pointer-events: none; position: relative; }
+      .font-pangram-bold { font-family: 'Pangram', sans-serif; font-weight: 700; }
+      .font-pragman { font-family: 'Pangram', sans-serif; }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <ViewTransitions />
   </head>
   <body class="bg-[#0B0E14] text-[#f5f5f5] antialiased selection:bg-[#f5bd02] selection:text-black overflow-x-hidden cursor-none">
     
-    <!-- Custom Cursor -->
     <div id="custom-cursor" class="fixed pointer-events-none z-[9999] mix-blend-difference">
       <div id="cursor-outer" class="absolute w-8 h-8 rounded-full border-2 border-white/30 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out"></div>
       <div id="cursor-inner" class="absolute w-3 h-3 rounded-full bg-[#f5bd02] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out"></div>
@@ -54,22 +74,22 @@ const {
       </div>
     </div>
 
-    <!-- Page transition curtain (two panels) -->
     <div id="curtain" class="fixed inset-0 z-[105] pointer-events-none">
       <div id="curtain-left" class="absolute top-0 left-0 h-full w-1/2 bg-[#0B0E14] transform -translate-x-full"></div>
       <div id="curtain-right" class="absolute top-0 right-0 h-full w-1/2 bg-[#0B0E14] transform translate-x-full"></div>
     </div>
+
     <header id="site-header" class="fixed top-0 left-0 w-full z-[70] p-6 md:px-12 md:py-8 flex justify-between items-center transition-all duration-500 ease-in-out">
       <a href="/" class="group flex items-center z-[80] custom-cursor-link">
         <img 
           src="/logos/white_logo.png" 
           alt="Helm Logo" 
-          class="h-6 md:h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-110" 
+          class="h-6 md:h-8 w-auto object-contain" 
         />
-      </a>
+        </a>
 
       <button id="menu-toggle" class="group flex items-center gap-4 custom-cursor-link z-[80] outline-none border-none bg-transparent">
-        <span class="text-[10px] font-pangram-bold tracking-[0.3em] uppercase hidden md:block group-hover:text-[#f5bd02] transition-colors">
+        <span class="text-[10px] font-pangram-bold tracking-[0.3em]  hidden md:block group-hover:text-[#f5bd02] transition-colors">
           Menu
         </span>
         <div class="flex flex-col gap-1.5 items-end">
@@ -79,17 +99,58 @@ const {
       </button>
     </header>
 
-    <div id="menu-overlay" class="fixed inset-0 bg-[#0B0E14] z-[60] transform translate-x-full transition-transform duration-700 cubic-bezier flex items-center justify-center pointer-events-none opacity-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#f5bd02]/10 to-transparent opacity-30"></div>
-      <nav class="relative z-10 flex flex-col items-center space-y-6 text-center">
-        {['Home', 'Work', 'About', 'Contact'].map((item, i) => (
-          <a href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-             class="menu-link font-monument text-5xl md:text-8xl uppercase hover:text-[#f5bd02] transition-all duration-500 opacity-0 translate-y-10 custom-cursor-link"
-             style={`transition-delay: ${i * 0.1}s`}>
-            {item}
-          </a>
-        ))}
+    <div id="menu-overlay" class="fixed inset-0 bg-[#0B0E14] z-[60] transform translate-x-full transition-transform duration-700 cubic-bezier flex flex-col items-center justify-center pointer-events-none opacity-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#f5bd02]/5 to-transparent opacity-30 pointer-events-none"></div>
+      
+      <nav class="relative z-50 flex flex-col items-center space-y-6 text-center">
+        
+        <a href="/" 
+           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           style="transition-delay: 0.1s">
+          Home
+        </a>
+
+        <a href="/our_service" 
+           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           style="transition-delay: 0.15s">
+          Our Services
+        </a>
+
+        <a href="/work" 
+           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           style="transition-delay: 0.2s">
+          Our Work
+        </a>
+
+        <a href="/calculator" 
+           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           style="transition-delay: 0.25s">
+          Calculator
+        </a>
+        
+        <a href="tel:+251977240817" 
+           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           style="transition-delay: 0.3s">
+          Contact
+        </a>
+
       </nav>
+
+      <div class="relative z-50 mt-16 flex gap-8 items-center menu-link opacity-0 translate-y-10" style="transition-delay: 0.4s">
+        <a href="https://web.facebook.com/helmcreativeet" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/helm_creative_et" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@helm.creatives" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+
     </div>
 
     <main class="relative z-10" transition:animate="fade">
@@ -101,23 +162,23 @@ const {
 
       <div class="w-full flex flex-col md:flex-row justify-between items-end z-10 gap-12">
         <div class="max-w-2xl">
-          <h3 class="font-monument text-4xl md:text-6xl uppercase leading-tight mb-8">
+          <h3 class="font-monument text-4xl md:text-6xl leading-tight mb-8">
             Need a <span class="text-[#f5bd02] italic">design?</span>
           </h3>
-          <a href="tel:+251977240817" class="inline-block border border-[#f5bd02] text-[#f5bd02] hover:bg-[#f5bd02] hover:text-black transition-all duration-500 px-10 py-5 rounded-full font-pangram-bold text-sm uppercase tracking-widest custom-cursor-link">
+          <a href="tel:+251977240817" class="inline-block border border-[#f5bd02] text-[#f5bd02] hover:bg-[#f5bd02] hover:text-black transition-all duration-500 px-10 py-5 rounded-full font-pangram-bold text-sm  tracking-widest custom-cursor-link">
             Call Now
           </a>
         </div>
         
-        <div class="flex flex-col gap-4 text-right font-pangram text-sm uppercase tracking-widest opacity-60">
+        <div class="flex flex-col gap-4 text-right font-pangram text-sm  tracking-widest opacity-60">
           <a href="https://www.tiktok.com/@helm.creatives" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">Tiktok</a>
           <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">LinkedIn</a>
-          <a href="https://web.facebook.com/Fkernew1064/?_rdc=1&_rdr" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">Facebook</a>
+          <a href="https://web.facebook.com/helmcreativeet/?_rdc=1&_rdr" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">Facebook</a>
         </div>
       </div>
 
       <div class="relative w-full z-10 mt-24 border-t border-white/10 pt-8 flex flex-col items-center">
-        <div class="flex justify-between w-full text-[10px] uppercase tracking-[0.4em] opacity-30 mb-12 font-pangram">
+        <div class="flex justify-between w-full text-[10px]  tracking-[0.4em] opacity-30 mb-12 font-pangram">
           <span>© 2026 HELM™</span>
           <span>Studio — Digital</span>
         </div>
@@ -137,82 +198,112 @@ const {
         const loader = document.getElementById('loader');
         const loaderBar = document.getElementById('loader-bar');
         const lines = [document.getElementById('line-1'), document.getElementById('line-2')];
-        const links = document.querySelectorAll('.menu-link');
+        // Updated selector to include the social icons container which also has the menu-link class
+        const links = document.querySelectorAll('.menu-link, .menu-link a'); 
         let isOpen = false;
 
         // Reset Menu on page change
         document.body.style.overflow = '';
 
-        // Custom Cursor Logic
+        // Function to Toggle Menu
+        const toggleMenu = () => {
+            isOpen = !isOpen;
+            // 1. Handle overlay position and opacity
+            menuOverlay.classList.toggle('translate-x-full', !isOpen);
+            menuOverlay.classList.toggle('opacity-0', !isOpen);
+            
+            // 2. CRITICAL: Handle pointer events explicitly
+            if (isOpen) {
+                menuOverlay.classList.remove('pointer-events-none');
+                menuOverlay.classList.add('pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuOverlay.classList.add('pointer-events-none');
+                menuOverlay.classList.remove('pointer-events-auto');
+                document.body.style.overflow = '';
+            }
+            
+            // 3. Burger Menu Animation
+            lines[0].style.transform = isOpen ? 'translateY(4px) rotate(45deg)' : 'none';
+            lines[1].style.transform = isOpen ? 'translateY(-3px) rotate(-45deg)' : 'none';
+            lines[1].style.width = isOpen ? '32px' : '20px';
+
+            // 4. Animate Links In/Out
+            const navLinks = document.querySelectorAll('.menu-link');
+            navLinks.forEach(link => {
+                link.classList.toggle('opacity-0', !isOpen);
+                link.classList.toggle('translate-y-10', !isOpen);
+            });
+        };
+
+        // Menu Click Logic
+        menuToggle.onclick = toggleMenu;
+
+        // Make links clickable and close menu upon clicking
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                // When a link is clicked, we want to close the menu immediately
+                // so the user sees the transition/loader
+                if(isOpen) toggleMenu();
+            });
+        });
+
+
+        /* --- Custom Cursor Logic --- */
         const cursorOuter = document.getElementById('cursor-outer');
         const cursorInner = document.getElementById('cursor-inner');
         const customCursor = document.getElementById('custom-cursor');
         
-        // Hide cursor on touch devices
         if ('ontouchstart' in window || navigator.maxTouchPoints) {
           customCursor.style.display = 'none';
           document.body.classList.remove('cursor-none');
         } else {
-          let mouseX = 0;
-          let mouseY = 0;
-          let cursorX = 0;
-          let cursorY = 0;
+          let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
           
-          // Mouse move event
           document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             customCursor.style.opacity = '1';
           });
           
-          // Mouse leave event
-          document.addEventListener('mouseleave', () => {
-            customCursor.style.opacity = '0';
-          });
+          document.addEventListener('mouseleave', () => customCursor.style.opacity = '0');
+          document.addEventListener('mouseenter', () => customCursor.style.opacity = '1');
           
-          // Mouse enter event
-          document.addEventListener('mouseenter', () => {
-            customCursor.style.opacity = '1';
-          });
-          
-          // Animation loop for smooth cursor movement
           const animateCursor = () => {
             cursorX += (mouseX - cursorX) * 0.15;
             cursorY += (mouseY - cursorY) * 0.15;
-            
             cursorOuter.style.left = cursorX + 'px';
             cursorOuter.style.top = cursorY + 'px';
             cursorInner.style.left = cursorX + 'px';
             cursorInner.style.top = cursorY + 'px';
-            
             requestAnimationFrame(animateCursor);
           };
-          
           animateCursor();
           
-          // Handle link hover effects
-          const cursorLinks = document.querySelectorAll('.custom-cursor-link, a, button, [role="button"]');
-          
-          cursorLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-              cursorOuter.style.width = '48px';
-              cursorOuter.style.height = '48px';
-              cursorOuter.style.borderColor = '#f5bd02';
-              cursorOuter.style.backgroundColor = 'rgba(245, 189, 2, 0.1)';
-              cursorInner.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            });
-            
-            link.addEventListener('mouseleave', () => {
-              cursorOuter.style.width = '32px';
-              cursorOuter.style.height = '32px';
-              cursorOuter.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-              cursorOuter.style.backgroundColor = 'transparent';
-              cursorInner.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-          });
+          // Re-attach listeners to all clickable elements (including new social icons)
+          const attachCursorListeners = () => {
+              const cursorLinks = document.querySelectorAll('.custom-cursor-link, a, button, [role="button"]');
+              cursorLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                  cursorOuter.style.width = '48px';
+                  cursorOuter.style.height = '48px';
+                  cursorOuter.style.borderColor = '#f5bd02';
+                  cursorOuter.style.backgroundColor = 'rgba(245, 189, 2, 0.1)';
+                  cursorInner.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                });
+                link.addEventListener('mouseleave', () => {
+                  cursorOuter.style.width = '32px';
+                  cursorOuter.style.height = '32px';
+                  cursorOuter.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  cursorOuter.style.backgroundColor = 'transparent';
+                  cursorInner.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+              });
+          };
+          attachCursorListeners();
         }
 
-        // Loader & Curtain Logic for Page Transitions
+        /* --- Page Transition Logic --- */
         const curtain = document.getElementById('curtain');
         const curtainLeft = document.getElementById('curtain-left');
         const curtainRight = document.getElementById('curtain-right');
@@ -253,7 +344,7 @@ const {
           setTimeout(hideCurtain, 80);
         });
 
-        // Header Scroll Logic
+        /* --- Header Scroll Logic --- */
         const handleScroll = () => {
           if (window.scrollY > 50) {
             header.classList.add('bg-[#0B0E14]/80', 'backdrop-blur-xl', 'py-5', 'border-b', 'border-white/5');
@@ -263,24 +354,6 @@ const {
         };
         window.addEventListener('scroll', handleScroll);
         handleScroll();
-
-        // Menu Logic
-        menuToggle.onclick = () => {
-          isOpen = !isOpen;
-          menuOverlay.classList.toggle('translate-x-full', !isOpen);
-          menuOverlay.classList.toggle('opacity-0', !isOpen);
-          menuOverlay.classList.toggle('pointer-events-auto', isOpen);
-          document.body.style.overflow = isOpen ? 'hidden' : '';
-          
-          lines[0].style.transform = isOpen ? 'translateY(4px) rotate(45deg)' : 'none';
-          lines[1].style.transform = isOpen ? 'translateY(-3px) rotate(-45deg)' : 'none';
-          lines[1].style.width = isOpen ? '32px' : '20px';
-
-          links.forEach(link => {
-            link.classList.toggle('opacity-0', !isOpen);
-            link.classList.toggle('translate-y-10', !isOpen);
-          });
-        };
       };
 
       initLayout();
@@ -288,7 +361,6 @@ const {
     </script>
 
     <style is:global>
-      
       @import "tailwindcss";
       
       /* View Transitions Styling */
@@ -319,44 +391,44 @@ const {
         to { opacity: 1; filter: blur(0); transform: translateY(0); }
       }
 
-      /* Curtain panels for a cut & reveal page transition */
+      /* Curtain panels */
       #curtain { pointer-events: none; }
-      #curtain-left, #curtain-right {
-        will-change: transform, opacity;
-      }
+      #curtain-left, #curtain-right { will-change: transform, opacity; }
       #curtain.active { pointer-events: auto; }
 
-      /* Custom Cursor Styling */
-      #custom-cursor {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      #cursor-outer {
-        will-change: transform;
-        pointer-events: none;
-      }
-      
-      #cursor-inner {
-        will-change: transform;
-        pointer-events: none;
-      }
+      /* Custom Cursor */
+      #custom-cursor { opacity: 0; transition: opacity 0.3s ease; }
+      #cursor-outer, #cursor-inner { will-change: transform; pointer-events: none; }
 
-      /* Remove default cursor for non-touch devices */
       @media (hover: hover) and (pointer: fine) {
-        * {
-          cursor: none !important;
-        }
-        
-        /* Optional: Keep text cursor for better UX */
-        input, textarea, [contenteditable] {
-          cursor: text !important;
-        }
+        * { cursor: none !important; }
+        input, textarea, [contenteditable] { cursor: text !important; }
       }
 
       .cubic-bezier { transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
-
-      /* Font Helpers */
+      
+      /* Font Declarations */
+      @font-face {
+        font-family: 'Monument Extended';
+        src: url('/fonts/MonumentExtended-Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pangram Sans';
+        src: url('/fonts/Pangram-Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pangram Sans';
+        src: url('/fonts/Pangram-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
       .font-monument { font-family: 'Monument Extended', sans-serif; }
       .font-pangram { font-family: 'Pangram Sans', sans-serif; }
       .font-pangram-bold { font-family: 'Pangram Sans', sans-serif; font-weight: 700; }

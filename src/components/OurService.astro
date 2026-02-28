@@ -1,0 +1,136 @@
+---
+// You can dynamically import these or leave them as an array here
+const services = [
+  {
+    title: "Web Development",
+    description: "We create websites focused on one thing: results. Every element is strategically placed to guide visitors toward taking action.",
+    icon: "fa-solid fa-laptop-code",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    title: "App Development",
+    description: "We build seamless, high-performance mobile applications that keep your users engaged. From iOS to Android, we bring your ideas to the palm of their hands.",
+    icon: "fa-solid fa-mobile-screen",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    title: "Branding",
+    description: "We craft compelling visual identities and brand voices that resonate deeply with your target audience.",
+    icon: "fa-solid fa-pen-nib",
+    image: "https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    title: "Digital Marketing",
+    description: "Data-driven campaigns that scale your reach. We leverage SEO, social media, and targeted ads to put your brand right in front of the people who matter.",
+    icon: "fa-solid fa-chart-line",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+  }
+];
+---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section id="services" class="relative w-full bg-[#0F172A] overflow-clip">
+  
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#151f38] to-[#0F172A] opacity-90 z-0 pointer-events-none"></div>
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f5bd02] blur-[150px] opacity-[0.08] pointer-events-none"></div>
+  <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#0F172A] blur-[120px] opacity-80 pointer-events-none z-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+    
+    <div class="lg:w-5/12 lg:sticky lg:top-10 lg:h-screen flex flex-col justify-center pt-24 lg:pt-0">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-[#f5bd02]"></div>
+          <span class="font-pragman text-[#f5bd02] uppercase tracking-widest text-sm font-semibold">Our Expertise</span>
+        </div>
+        
+        <h2 class="font-pangram-bold text-5xl lg:text-7xl text-white mb-6 leading-tight">
+          What We Do <br /> <span class="text-[#f5bd02]">Best.</span>
+        </h2>
+        
+        <p class="font-pragman text-slate-300 text-lg lg:text-xl leading-relaxed mb-10 opacity-90 max-w-md">
+          We combine strategy, design, and technology to craft digital experiences that drive real results. Whatever your goals, we have the tools to get you there.
+        </p>
+
+        <a href="https://alpha_valley" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-pragman hover:bg-[#f5bd02] hover:text-[#0F172A] hover:border-[#f5bd02] transition-all duration-300 group">
+          Let's Talk
+          <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:w-7/12 flex flex-col gap-12 lg:gap-20 py-16 lg:py-32">
+      {services.map((service, index) => (
+        <div class="cinematic-reveal-card group flex flex-col lg:flex-row bg-[#111A30] border border-white/[0.05] overflow-hidden hover:border-[#f5bd02]/40 hover:bg-[#151f38] transition-all duration-700">
+          
+          <div class="lg:w-1/2 min-h-[300px] lg:min-h-[450px] overflow-hidden relative">
+            <div class="absolute inset-0 bg-[#0F172A]/30 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+            <img 
+              src={service.image} 
+              alt={service.title} 
+              class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[1500ms] ease-out" 
+              loading="lazy"
+            />
+          </div>
+
+          <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center relative">
+            
+            <div class="w-16 h-16 bg-[#0F172A] border border-white/10 flex items-center justify-center mb-8 group-hover:border-[#f5bd02]/50 transition-all duration-500 shadow-xl">
+              <i class={`${service.icon} text-[#f5bd02] text-2xl`}></i>
+            </div>
+            
+            <h3 class="font-pangram-bold text-3xl lg:text-4xl text-white mb-5 group-hover:text-[#f5bd02] transition-colors duration-500">
+              {service.title}
+            </h3>
+            
+            <p class="font-pragman text-slate-400 text-lg leading-relaxed group-hover:text-slate-300 transition-colors duration-500">
+              {service.description}
+            </p>
+
+            <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-transparent group-hover:border-[#f5bd02]/50 transition-colors duration-700 m-4"></div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Cinematic setup: Wait slightly until more of the card is visible
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.25 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Cinematic blur & fade in: clear the blur and opacity, restore scale
+          entry.target.classList.remove('opacity-0', 'scale-[0.98]', 'blur-[12px]');
+          entry.target.classList.add('opacity-100', 'scale-100', 'blur-0');
+          // Unobserve to keep the cards visible once scrolled past
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Apply the initial cinematic hidden states
+    const cards = document.querySelectorAll('.cinematic-reveal-card');
+    cards.forEach((card) => {
+      card.classList.add(
+        'opacity-0', 
+        'scale-[0.98]', 
+        'blur-[12px]', // Added deep blur for the starting state
+        'transition-all', 
+        'duration-[1500ms]', // Increased from 1500ms so the blur effect lingers beautifully
+        'ease-in-out'
+      );
+      observer.observe(card);
+    });
+  });
+</script>

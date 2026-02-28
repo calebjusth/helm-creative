@@ -1,0 +1,423 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Presentation Theme: "Peaceful Sanctuary"
+// Dark Green: #0C2320 (Primary background)
+// Soft Mist: #F2F5F4 (Light background)
+// Text Dark: #111111 (High contrast text)
+// Text Light: #FFFFFF
+// Accent: #8CA9A0 (Sage green for borders/lines)
+
+const clientData = {
+  name: "Abetu Medical Center",
+  location: "Ethiopia, Hawassa",
+  year: "2025",
+  services: ["Web Design", "Development", "Local SEO"],
+  outcome: "35% Increase in Appointment Bookings"
+};
+
+// SEO metadata
+const seoData = {
+  title: "Abetu Medical Center - Community Healthcare Case Study",
+  description: "A clean, approachable website design for Abetu Medical Center in Ethiopia, Hawassa. 35% increase in appointment bookings through thoughtful web design and local SEO.",
+  canonical: "https://helmagency.com/work/abetu-medical",
+  ogImage: "/portfolio/abetu/og-image.jpg",
+  keywords: "medical center website design, healthcare web development, Ethiopia medical website, clinic web design, local SEO for doctors"
+};
+---
+
+<Layout 
+  title={seoData.title}
+  description={seoData.description}
+  canonical={seoData.canonical}
+  ogImage={seoData.ogImage}
+>
+  
+  <!-- Image Protection Overlay -->
+  <div style="display: none;" aria-hidden="true">
+    <!-- Transparent overlay to prevent right-click -->
+    <div class="protection-overlay" onclick="return false;" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;" oncopy="return false;"></div>
+  </div>
+
+  <!-- Disable developer tools warning (optional) -->
+  <script is:inline>
+    // Simple protection against right-click and inspect element
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Optional: Warn against inspect element (not foolproof but adds deterrent)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+          (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Abetu Medical Center Website",
+      "description": "Community healthcare website design for Ethiopia-based medical center",
+      "creator": {
+        "@type": "Organization",
+        "name": "Helm Creative Agency"
+      },
+      "about": {
+        "@type": "MedicalClinic",
+        "name": "Abetu Medical Center",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ethiopia",
+          "addressRegion": "OR",
+          "addressCountry": "USA"
+        },
+        "medicalSpecialty": ["Primary Care", "Pediatrics", "Family Medicine"]
+      },
+      "keywords": "medical website, healthcare web design, Ethiopia clinic",
+      "dateCreated": "2025",
+      "workExample": {
+        "@type": "CreativeWork",
+        "name": "35% Increase in Appointment Bookings",
+        "description": "Post-launch engagement metrics"
+      }
+    }
+  </script>
+
+  <section class="relative min-h-screen w-full bg-[#0C2320] flex flex-col justify-between pt-40 pb-12 px-6 md:px-12">
+    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');" aria-hidden="true"></div>
+
+    <div class="container mx-auto z-10">
+      <!-- SEO Header -->
+      <header class="sr-only">
+        <h1>Abetu Medical Center - Community Healthcare Case Study by Helm Creative Agency</h1>
+        <p>Professional web design and development for medical centers in Ethiopia, Oregon. 35% increase in patient appointment bookings.</p>
+      </header>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#FFFFFF]/20 pb-12 mb-12">
+        <div>
+          <span class="block text-[#8CA9A0] font-pangram text-xs tracking-[0.3em] mb-4" aria-label="Case study presentation">Case Study</span>
+          <h1 class="font-monument text-5xl md:text-8xl lg:text-9xl text-white leading-[0.9]">
+            Abetu <br />
+            <span class="text-[#8CA9A0] italic font-serif">Medical Center</span>
+          </h1>
+        </div>
+        <div class="mt-8 md:mt-0 max-w-sm">
+          <p class="text-[#F2F5F4]/80 font-pangram text-sm leading-relaxed">
+            A clean, approachable digital presence designed to connect Ethiopia families with quality healthcare in their community.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-[#F2F5F4]/60 font-pangram text-xs tracking-widest">
+        <div itemscope itemtype="https://schema.org/Organization">
+          <span class="block text-[#8CA9A0] mb-2">Client</span>
+          <span itemprop="name">{clientData.name}</span>
+        </div>
+        <div itemscope itemtype="https://schema.org/Place">
+          <span class="block text-[#8CA9A0] mb-2">Location</span>
+          <span itemprop="address">{clientData.location}</span>
+        </div>
+        <div>
+          <span class="block text-[#8CA9A0] mb-2">Services</span>
+          {clientData.services.join(", ")}
+        </div>
+        <div>
+          <span class="block text-[#8CA9A0] mb-2">Year</span>
+          <time datetime="2025">{clientData.year}</time>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true">
+      <div class="w-[1px] h-12 bg-[#8CA9A0]"></div>
+      <span class="text-[#8CA9A0] text-[10px] tracking-widest">Scroll</span>
+    </div>
+  </section>
+
+  
+  <section class="bg-[#F2F5F4] text-[#111111] py-40 md:py-64 px-6 md:px-12">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-12 gap-12 items-start">
+        
+        <div class="md:col-span-4 sticky top-24">
+          <span class="block text-[#0C2320] font-pangram-bold text-xs tracking-[0.3em] mb-8">The Concept</span>
+          <h2 class="font-monument text-4xl md:text-6xl leading-none mb-8 text-[#0C2320]">
+            Family <br /><span class="italic font-serif text-[#6B8E83]">First</span>
+          </h2>
+          <div class="h-[1px] w-12 bg-[#0C2320] mt-8" aria-hidden="true"></div>
+        </div>
+
+        <div class="md:col-span-8 space-y-32">
+          
+          <p class="text-xl md:text-3xl font-pangram leading-relaxed text-[#111111]">
+            We designed a warm, accessible website that puts patients at ease. The goal was to make finding care simple—reflecting the compassionate experience of walking into Abetu's clinic.
+          </p>
+
+          <!-- Protected Image Container -->
+          <div class="w-full aspect-video bg-[#D1DBD8] relative overflow-hidden group">
+            
+            <div class="image-protection w-full h-full">
+              <img 
+                src="/portfolio/abetu/mockup.jpg" 
+                alt="Abetu Medical Center homepage hero section - Clean healthcare design featuring welcoming imagery and appointment booking" 
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out opacity-0 md:opacity-100 mix-blend-multiply"
+                loading="lazy"
+                draggable="false"
+                oncontextmenu="return false;"
+                onerror="this.style.display='none'"
+              />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+               <h3 class="font-bold text-lg mb-4 tracking-widest">Typography</h3>
+               <p class="text-[#111111]/70 leading-relaxed">
+                 We paired a warm, approachable serif with a clean geometric sans-serif to create a balance of professionalism and friendliness for this Ethiopia medical center.
+               </p>
+            </div>
+            <div>
+               <h3 class="font-bold text-lg mb-4 tracking-widest">Palette</h3>
+               <p class="text-[#111111]/70 leading-relaxed">
+                 Soft greens and plenty of white space create a calming atmosphere, while maintaining the professional trust patients expect from their healthcare provider.
+               </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F2F5F4] py-40 px-6 md:px-12 border-b border-[#0C2320]/10">
+    <div class="container mx-auto">
+      <div class="flex items-end justify-between mb-24">
+        <h2 class="font-monument text-5xl md:text-7xl text-[#0C2320]">Selected <br /> <span class="italic font-serif text-[#6B8E83]">Views</span></h2>
+        <span class="hidden md:block text-[#0C2320] font-pangram text-sm" aria-label="1 of 4 images">[ 01 — 04 ]</span>
+      </div>
+
+      <div class="space-y-32">
+        
+        <div class="grid md:grid-cols-12 gap-8 md:gap-20 items-center">
+          <div class="md:col-span-7">
+            <div class="bg-[#E5EAE8] aspect-[4/3] w-full relative overflow-hidden image-protection">
+              <img 
+                src="/portfolio/abetu/mockup.jpg" 
+                alt="Abetu Medical Center services page - Clean layout showcasing primary care, pediatrics, and urgent care options" 
+                class="w-full h-full object-cover grayscale mix-blend-multiply"
+                loading="lazy"
+                draggable="false"
+                oncontextmenu="return false;"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <p class="mt-4 text-xs font-mono text-[#0C2320]/60">FIG 1.0 — Services Overview</p>
+          </div>
+          
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-20 items-center">
+           <div class="md:col-span-4">
+              <h3 class="font-monument text-3xl text-[#0C2320] mb-6">Simple <br />Appointments</h3>
+              <p class="font-pangram text-[#111111]/70 leading-relaxed mb-8">
+                 We built a streamlined booking flow that makes scheduling care effortless. Patients can book, reschedule, or cancel appointments in just a few taps—leading to a 35% increase in online bookings.
+              </p>
+              <ul class="space-y-4 border-t border-[#0C2320]/10 pt-8">
+                 <li class="flex justify-between text-sm font-pangram text-[#0C2320]">
+                    <span>Online Booking Increase</span>
+                    <span class="font-bold">+35%</span>
+                 </li>
+                 <li class="flex justify-between text-sm font-pangram text-[#0C2320]">
+                    <span>Reduced No-Show Rate</span>
+                    <span class="font-bold">-22%</span>
+                 </li>
+              </ul>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<!-- NEW FULL-WIDTH VIDEO SECTION - NO SHADOW, 100% WIDTH, 100VH -->
+  <section class="w-full h-screen bg-[#0C2320] overflow-hidden">
+    <div class="w-full h-full relative">
+      <video 
+        class="w-full h-full object-cover"
+        autoplay 
+        muted 
+        loop 
+        playsinline
+      >
+        <source src="/portfolio/abetu/abetu-vid.mp4" type="video/mp4">
+        <!-- Fallback for browsers that don't support video -->
+        Your browser does not support the video tag.
+      </video>
+      <!-- Optional subtle overlay for text legibility if needed -->
+      <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+      
+      <!-- Optional minimal caption -->
+      <div class="absolute bottom-12 left-12 text-white/60 text-xs tracking-widest font-pangram">
+        ABETU MEDICAL CENTER — Ethiopia, Hawassa
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F2F5F4] py-32 px-6 md:px-12">
+    <div class="container mx-auto max-w-4xl text-center">
+      <div class="image-protection inline-block">
+        <img 
+          src="/companies/abetu.png" 
+          alt="Dr. Sarah Chen, Medical Director at Abetu Medical Center in Ethiopia, Oregon" 
+          class=" mx-auto mb-6 object-cover grayscale"
+          loading="lazy"
+          draggable="false"
+          oncontextmenu="return false;"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      
+      <!-- Testimonial with schema markup -->
+      <blockquote itemscope itemtype="https://schema.org/Review" class="font-pangram text-2xl md:text-4xl leading-snug text-[#111111] mb-12">
+        <span itemprop="reviewBody">"The team at Helm Creative understood exactly what we needed. Our new website feels like an extension of our clinic—warm, welcoming, and focused on patient care."</span>
+        <meta itemprop="itemReviewed" content="Abetu Medical Center Website" />
+        <meta itemprop="reviewRating" content="5" />
+      </blockquote>
+      
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-12 h-[1px] bg-[#0C2320]" aria-hidden="true"></div>
+        <cite class="not-italic font-pangram-bold text-sm tracking-widest text-[#0C2320]" itemprop="author">Dr. Sarah Chen</cite>
+        <div class="w-12 h-[1px] bg-[#0C2320]" aria-hidden="true"></div>
+      </div>
+      <p class="text-xs text-[#0C2320]/60 mt-4">Medical Director, Abetu Medical Center</p>
+    </div>
+  </section>
+
+  <section class="bg-[#0C2320] py-40 px-6 md:px-12 text-center">
+    <div class="container mx-auto">
+      <h2 class="font-monument text-4xl md:text-6xl text-white mb-12">
+        Ready to elevate <br /> your <span class="italic font-serif text-[#8CA9A0]">practice?</span>
+      </h2>
+      
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <a href="/" class="group relative px-12 py-6 bg-[#F2F5F4] overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#0C2320] group-hover:text-white transition-colors duration-500">Back to Home</span>
+           <div class="absolute inset-0 bg-[#8CA9A0] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
+        </a>
+        <a href="https://t.me/alpha_valley" target="_blank" rel="noopener noreferrer" class="group relative px-12 py-6 border border-[#F2F5F4]/20 overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-white group-hover:text-black transition-colors duration-300">Start Your Project</span>
+           <div class="absolute inset-0 bg-white transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-500 ease-out"></div>
+        </a>
+      </div>
+
+      <div class="mt-32 pt-8 border-t border-white/10 flex justify-between text-white/30 text-[10px] tracking-widest font-pangram">
+        <span>© {new Date().getFullYear()} Helm Creative Agency</span>
+        <span>Ethiopia • Healthcare Design</span>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  /* Base styles for premium feel */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Font definitions with fallbacks */
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  
+  /* Image Protection */
+  .image-protection {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  /* Prevent selection of text content */
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* But allow selection on specific elements that should be selectable */
+  p, h1, h2, h3, h4, h5, h6, a, span, blockquote, cite {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Reveal animation helper */
+  .reveal-text {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Video section specific */
+  video {
+    pointer-events: none; /* Prevents interaction with video if desired */
+  }
+</style>

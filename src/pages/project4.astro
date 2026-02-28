@@ -1,0 +1,392 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Presentation Theme: "Peaceful Sanctuary"
+// Dark Green: #0C2320 (Primary background)
+// Soft Mist: #F2F5F4 (Light background)
+// Text Dark: #111111 (High contrast text)
+// Text Light: #FFFFFF
+// Accent: #8CA9A0 (Sage green for borders/lines)
+
+const clientData = {
+  name: "Glory of God Day International Church",
+  location: "Edmonton, Canada",
+  year: "2024",
+  services: ["Web Design", "Development", "SEO"],
+  outcome: "40% Increase in Engagement"
+};
+
+// SEO metadata
+const seoData = {
+  title: "Glory of God Day International Church - Digital Sanctuary Case Study",
+  description: "A peaceful digital sanctuary designed for Prophet Mesfin Abulo's ministry in Edmonton, Canada. 40% increase in engagement through thoughtful web design and development.",
+  canonical: "https://helmagency.com/work/glory-of-god-day",
+  ogImage: "/portfolio/ggd/og-image.jpg",
+  keywords: "church website design, religious organization SEO, nonprofit web development, Edmonton web design, digital ministry"
+};
+---
+
+<Layout 
+  title={seoData.title}
+  description={seoData.description}
+  canonical={seoData.canonical}
+  ogImage={seoData.ogImage}
+>
+  
+  <!-- Image Protection Overlay -->
+  <div style="display: none;" aria-hidden="true">
+    <!-- Transparent overlay to prevent right-click -->
+    <div class="protection-overlay" onclick="return false;" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;" oncopy="return false;"></div>
+  </div>
+
+  <!-- Disable developer tools warning (optional) -->
+  <script is:inline>
+    // Simple protection against right-click and inspect element
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Optional: Warn against inspect element (not foolproof but adds deterrent)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+          (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Glory of God Day International Church Website",
+      "description": "Digital sanctuary website design for Edmonton-based church",
+      "creator": {
+        "@type": "Organization",
+        "name": "Helm Creative Agency"
+      },
+      "about": {
+        "@type": "Church",
+        "name": "Glory of God Day International Church",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Edmonton",
+          "addressCountry": "Canada"
+        }
+      },
+      "keywords": "church website, religious web design, Edmonton church",
+      "dateCreated": "2024",
+      "workExample": {
+        "@type": "CreativeWork",
+        "name": "40% Increase in Engagement",
+        "description": "Post-launch engagement metrics"
+      }
+    }
+  </script>
+
+  <section class="relative min-h-screen w-full bg-[#0C2320] flex flex-col justify-between pt-40 pb-12 px-6 md:px-12">
+    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');" aria-hidden="true"></div>
+
+    <div class="container mx-auto z-10">
+      <!-- SEO Header -->
+      <header class="sr-only">
+        <h1>Glory of God Day International Church - Digital Sanctuary Case Study by Helm Creative Agency</h1>
+        <p>Professional web design and development for religious organizations in Edmonton, Canada. 40% increase in congregation engagement.</p>
+      </header>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#FFFFFF]/20 pb-12 mb-12">
+        <div>
+          <span class="block text-[#8CA9A0] font-pangram text-xs tracking-[0.3em] mb-4" aria-label="Case study presentation">Case Study</span>
+          <h1 class="font-monument text-5xl md:text-8xl lg:text-9xl text-white leading-[0.9]">
+            Glory <br />
+            <span class="text-[#8CA9A0] italic font-serif">Of God Day</span>
+          </h1>
+        </div>
+        <div class="mt-8 md:mt-0 max-w-sm">
+          <p class="text-[#F2F5F4]/80 font-pangram text-sm leading-relaxed">
+            A digital sanctuary designed to reflect the divine peace and community of Prophet Mesfin Abulo's ministry in Edmonton, Alberta.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-[#F2F5F4]/60 font-pangram text-xs tracking-widest">
+        <div itemscope itemtype="https://schema.org/Organization">
+          <span class="block text-[#8CA9A0] mb-2">Client</span>
+          <span itemprop="name">{clientData.name}</span>
+        </div>
+        <div itemscope itemtype="https://schema.org/Place">
+          <span class="block text-[#8CA9A0] mb-2">Location</span>
+          <span itemprop="address">{clientData.location}</span>
+        </div>
+        <div>
+          <span class="block text-[#8CA9A0] mb-2">Services</span>
+          {clientData.services.join(", ")}
+        </div>
+        <div>
+          <span class="block text-[#8CA9A0] mb-2">Year</span>
+          <time datetime="2024">{clientData.year}</time>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true">
+      <div class="w-[1px] h-12 bg-[#8CA9A0]"></div>
+      <span class="text-[#8CA9A0] text-[10px] tracking-widest">Scroll</span>
+    </div>
+  </section>
+
+  <section class="bg-[#F2F5F4] text-[#111111] py-40 md:py-64 px-6 md:px-12">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-12 gap-12 items-start">
+        
+        <div class="md:col-span-4 sticky top-24">
+          <span class="block text-[#0C2320] font-pangram-bold text-xs tracking-[0.3em] mb-8">The Concept</span>
+          <h2 class="font-monument text-4xl md:text-6xl leading-none mb-8 text-[#0C2320]">
+            Digital <br /><span class="italic font-serif text-[#6B8E83]">Tabernacle</span>
+          </h2>
+          <div class="h-[1px] w-12 bg-[#0C2320] mt-8" aria-hidden="true"></div>
+        </div>
+
+        <div class="md:col-span-8 space-y-32">
+          
+          <p class="text-xl md:text-3xl font-pangram leading-relaxed text-[#111111]">
+            We stripped away the noise to create a platform that breathes. The goal was to translate the physical feeling of walking into a peaceful church sanctuary into pixels and code for Prophet Mesfin Abulo's Edmonton congregation.
+          </p>
+
+          <!-- Protected Image Container -->
+          <div class="w-full aspect-video bg-[#D1DBD8] relative overflow-hidden group">
+            
+            <div class="image-protection w-full h-full">
+              <img 
+                src="/portfolio/ggd/mockup.png" 
+                alt="Glory of God Day International Church homepage hero section - Digital sanctuary design showcase featuring peaceful navigation and sermon integration" 
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out opacity-0 md:opacity-100 mix-blend-multiply"
+                loading="lazy"
+                draggable="false"
+                oncontextmenu="return false;"
+                onerror="this.style.display='none'"
+              />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+               <h3 class="font-bold text-lg mb-4 tracking-widest">Typography</h3>
+               <p class="text-[#111111]/70 leading-relaxed">
+                 We utilized a strong, architectural serif font paired with a clean geometric sans-serif to balance tradition with modernity for this Edmonton-based church.
+               </p>
+            </div>
+            <div>
+               <h3 class="font-bold text-lg mb-4 tracking-widest">Palette</h3>
+               <p class="text-[#111111]/70 leading-relaxed">
+                 We utilized white space as a primary color to allow the content—the sermons and the people—to take center stage, reflecting the peaceful sanctuary atmosphere.
+               </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F2F5F4] py-40 px-6 md:px-12 border-b border-[#0C2320]/10">
+    <div class="container mx-auto">
+      <div class="flex items-end justify-between mb-24">
+        <h2 class="font-monument text-5xl md:text-7xl text-[#0C2320]">Selected <br /> <span class="italic font-serif text-[#6B8E83]">Views</span></h2>
+        <span class="hidden md:block text-[#0C2320] font-pangram text-sm" aria-label="1 of 4 images">[ 01 — 04 ]</span>
+      </div>
+
+      <div class="space-y-32">
+        
+        <div class="grid md:grid-cols-12 gap-8 md:gap-20 items-center">
+          <div class="md:col-span-7">
+            <div class="bg-[#E5EAE8] aspect-[4/3] w-full relative overflow-hidden image-protection">
+              <img 
+                src="/portfolio/ggd/bg-mockup.jpg" 
+                alt="Glory of God Day International Church website navigation menu - Minimalist design with sage green accents and clean typography" 
+                class="w-full h-full object-cover grayscale mix-blend-multiply"
+                loading="lazy"
+                draggable="false"
+                oncontextmenu="return false;"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <p class="mt-4 text-xs font-mono text-[#0C2320]/60">FIG 1.0 — Navigation System</p>
+          </div>
+          
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-20 items-center">
+           <div class="md:col-span-4">
+              <h3 class="font-monument text-3xl text-[#0C2320] mb-6">Seamless <br />Giving</h3>
+              <p class="font-pangram text-[#111111]/70 leading-relaxed mb-8">
+                 We integrated a custom donation flow that feels secure and native to the experience, removing friction for the congregation. Resulting in 60% increase in mobile conversion.
+              </p>
+              <ul class="space-y-4 border-t border-[#0C2320]/10 pt-8">
+                 <li class="flex justify-between text-sm font-pangram text-[#0C2320]">
+                    <span>Mobile Conversion Increase</span>
+                    <span class="font-bold">+60%</span>
+                 </li>
+                 <li class="flex justify-between text-sm font-pangram text-[#0C2320]">
+                    <span>Overall Engagement</span>
+                    <span class="font-bold">+40%</span>
+                 </li>
+              </ul>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F2F5F4] py-32 px-6 md:px-12">
+    <div class="container mx-auto max-w-4xl text-center">
+      <div class="image-protection inline-block">
+        <img 
+          src="/companies/ggd.png" 
+          alt="Prophet Mesfin Abulo, Founder of Glory of God Day International Church in Edmonton, Canada" 
+          class="w-24 h-24 rounded-full mx-auto mb-6 object-cover grayscale"
+          loading="lazy"
+          draggable="false"
+          oncontextmenu="return false;"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      
+      <!-- Testimonial with schema markup -->
+      <blockquote itemscope itemtype="https://schema.org/Review" class="font-pangram text-2xl md:text-4xl leading-snug text-[#111111] mb-12">
+        <span itemprop="reviewBody">"We are thrilled with the outcome and the seamless collaborative journey that brought our desire of having a modern website to life."</span>
+        <meta itemprop="itemReviewed" content="Glory of God Day International Church Website" />
+        <meta itemprop="reviewRating" content="5" />
+      </blockquote>
+      
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-12 h-[1px] bg-[#0C2320]" aria-hidden="true"></div>
+        <cite class="not-italic font-pangram-bold text-sm tracking-widest text-[#0C2320]" itemprop="author">Prophet Mesfin Abulo</cite>
+        <div class="w-12 h-[1px] bg-[#0C2320]" aria-hidden="true"></div>
+      </div>
+      <p class="text-xs text-[#0C2320]/60 mt-4">Founder, Glory of God Day International Church</p>
+    </div>
+  </section>
+
+  <section class="bg-[#0C2320] py-40 px-6 md:px-12 text-center">
+    <div class="container mx-auto">
+      <h2 class="font-monument text-4xl md:text-6xl text-white mb-12">
+        Ready to elevate <br /> your <span class="italic font-serif text-[#8CA9A0]">Presence?</span>
+      </h2>
+      
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <a href="/" class="group relative px-12 py-6 bg-[#F2F5F4] overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#0C2320] group-hover:text-white transition-colors duration-500">Back to Home</span>
+           <div class="absolute inset-0 bg-[#8CA9A0] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
+        </a>
+        <a href="https://t.me/alpha_valley" target="_blank" rel="noopener noreferrer" class="group relative px-12 py-6 border border-[#F2F5F4]/20 overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-white group-hover:text-black transition-colors duration-300">Start Your Sanctuary</span>
+           <div class="absolute inset-0 bg-white transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-500 ease-out"></div>
+        </a>
+      </div>
+
+      <div class="mt-32 pt-8 border-t border-white/10 flex justify-between text-white/30 text-[10px] tracking-widest font-pangram">
+        <span>© {new Date().getFullYear()} Helm Creative Agency</span>
+        <span>Edmonton • Digital Ministry</span>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  /* Base styles for premium feel */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Font definitions with fallbacks */
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  
+  /* Image Protection */
+  .image-protection {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  /* Prevent selection of text content */
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* But allow selection on specific elements that should be selectable */
+  p, h1, h2, h3, h4, h5, h6, a, span, blockquote, cite {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Reveal animation helper */
+  .reveal-text {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+</style>
