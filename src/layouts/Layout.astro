@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-
 interface Props {
   title: string;
   description?: string;
@@ -10,8 +8,10 @@ interface Props {
 const { 
   title, 
   description = "Helm Creative Agency - Leading Digital Studio for Design & Strategy", 
-  image = "/logos/white_logo.png" 
+  image = "/og-image.webp" 
 } = Astro.props;
+
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -25,12 +25,13 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="helm" />
     
     <!-- Optional: Theme color for mobile browsers -->
-    <meta name="theme-color" content="#0C2320" />
+    <meta name="theme-color" content="#FAF9F6" />
     <meta name="generator" content={Astro.generator} />
     
-    <title>{title} | Ethiopia Web Development | HELM™</title>
+    <title>{title} | Creative Agency™</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
 
@@ -46,173 +47,165 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <style global>
-      img, .marquee-col img, .logo-track img, .relative img {
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-drag: none;
-      }
-      .image-protection { pointer-events: none; position: relative; }
-      .font-pangram-bold { font-family: 'Pangram', sans-serif; font-weight: 700; }
-      .font-pragman { font-family: 'Pangram', sans-serif; }
-    </style>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <ViewTransitions />
   </head>
-  <body class="bg-[#0B0E14] text-[#f5f5f5] antialiased selection:bg-[#f5bd02] selection:text-black overflow-x-hidden cursor-none">
-    
-    <div id="custom-cursor" class="fixed pointer-events-none z-[9999] mix-blend-difference">
-      <div id="cursor-outer" class="absolute w-8 h-8 rounded-full border-2 border-white/30 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out"></div>
-      <div id="cursor-inner" class="absolute w-3 h-3 rounded-full bg-[#f5bd02] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out"></div>
-    </div>
-    
-    <div id="loader" class="fixed inset-0 z-[100] bg-[#0B0E14] flex flex-col items-center justify-center transition-opacity duration-500 pointer-events-none opacity-0">
-      <div class="w-24 h-[1px] bg-white/20 relative overflow-hidden">
-        <div id="loader-bar" class="absolute inset-0 bg-[#f5bd02] -translate-x-full"></div>
-      </div>
-    </div>
-
-    <div id="curtain" class="fixed inset-0 z-[105] pointer-events-none">
-      <div id="curtain-left" class="absolute top-0 left-0 h-full w-1/2 bg-[#0B0E14] transform -translate-x-full"></div>
-      <div id="curtain-right" class="absolute top-0 right-0 h-full w-1/2 bg-[#0B0E14] transform translate-x-full"></div>
-    </div>
+  <body class="bg-brand-navy text-brand-white antialiased selection:bg-brand-gold selection:text-black overflow-x-hidden">
 
     <header id="site-header" class="fixed top-0 left-0 w-full z-[70] p-6 md:px-12 md:py-8 flex justify-between items-center transition-all duration-500 ease-in-out">
-      <a href="/" class="group flex items-center z-[80] custom-cursor-link">
+      <a href="/" class="group flex items-center z-[80]">
         <img 
-          src="/logos/white_logo.png" 
+          src="/logo-icon/main-black.png" 
           alt="Helm Logo" 
-          class="h-6 md:h-8 w-auto object-contain" 
+          class="h-16 w-auto object-contain block sm:hidden" 
         />
+        <img 
+          src="/logo-icon/main-black.png" 
+          alt="Helm Logo" 
+          class="h-60 md:h-10 w-auto object-contain hidden sm:block" 
+        />
+      </a>
+
+      <div class="flex items-center gap-3 md:gap-6">
+        <a href="tel:+251959516667" target="_blank" class="hidden sm:flex items-center gap-2 text-brand-white hover:text-brand-gold transition-colors">
+          <i class="fas fa-phone-alt text-sm md:text-base"></i>
+          <span class="text-xs md:text-sm font-sans font-medium">Call Us</span>
         </a>
 
-      <button id="menu-toggle" class="group flex items-center gap-4 custom-cursor-link z-[80] outline-none border-none bg-transparent">
-        <span class="text-[10px] font-pangram-bold tracking-[0.3em]  hidden md:block group-hover:text-[#f5bd02] transition-colors">
-          Menu
-        </span>
-        <div class="flex flex-col gap-1.5 items-end">
-          <span id="line-1" class="block w-8 h-[1px] bg-white group-hover:bg-[#f5bd02] transition-all duration-300"></span>
-          <span id="line-2" class="block w-5 h-[1px] bg-white group-hover:bg-[#f5bd02] transition-all duration-300"></span>
-        </div>
-      </button>
+        <a href="tel:+251959516667" target="_blank" class="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-white/5 text-brand-white hover:text-brand-gold hover:bg-white/10 transition-colors">
+          <i class="fas fa-phone-alt text-sm"></i>
+          <span class="sr-only">Call Us</span>
+        </a>
+        
+        <a href="https://wa.me/251959516667" target="_blank" class="group hidden sm:flex items-center gap-2 bg-[#1a1a1a] text-[#FAF9F6] hover:bg-[#2a2a2a] px-4 md:px-6 py-2 md:py-3 rounded-full transition-all duration-300">
+          <i class="fab fa-whatsapp text-sm md:text-base"></i>
+          <span class="text-xs md:text-sm font-sans">WhatsApp Us</span>
+        </a>
+
+        <a href="https://wa.me/251959516667" target="_blank" class="group flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] text-[#FAF9F6] hover:bg-[#2a2a2a] transition-all duration-300">
+          <i class="fab fa-whatsapp text-sm"></i>
+          <span class="sr-only">WhatsApp Us</span>
+        </a>
+
+        <button id="menu-toggle" class="group flex items-center gap-4 z-[80] outline-none border-none bg-transparent">
+          <span class="text-[10px] font-sans font-bold tracking-widest hidden md:block group-hover:text-brand-gold transition-colors">
+            Menu
+          </span>
+          <div class="flex flex-col gap-1.5 items-end">
+            <span id="line-1" class="block w-8 h-[1px] bg-brand-white group-hover:bg-brand-gold transition-all duration-300"></span>
+            <span id="line-2" class="block w-5 h-[1px] bg-brand-white group-hover:bg-brand-gold transition-all duration-300"></span>
+          </div>
+        </button>
+      </div>
     </header>
 
-    <div id="menu-overlay" class="fixed inset-0 bg-[#0B0E14] z-[60] transform translate-x-full transition-transform duration-700 cubic-bezier flex flex-col items-center justify-center pointer-events-none opacity-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#f5bd02]/5 to-transparent opacity-30 pointer-events-none"></div>
+    <div id="menu-overlay" class="fixed inset-0 bg-brand-navy z-[60] transform translate-x-full transition-transform duration-700 cubic-bezier flex flex-col items-center justify-center pointer-events-none opacity-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-30 pointer-events-none"></div>
       
       <nav class="relative z-50 flex flex-col items-center space-y-6 text-center">
         
         <a href="/" 
-           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           class="menu-link font-display uppercase text-3xl md:text-5xl font-bold hover:text-brand-gold transition-all duration-300 opacity-0 translate-y-10"
            style="transition-delay: 0.1s">
           Home
         </a>
 
         <a href="/our_service" 
-           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           class="menu-link font-display uppercase text-3xl md:text-5xl font-bold hover:text-brand-gold transition-all duration-300 opacity-0 translate-y-10"
            style="transition-delay: 0.15s">
           Our Services
         </a>
 
         <a href="/work" 
-           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           class="menu-link font-display uppercase text-3xl md:text-5xl font-bold hover:text-brand-gold transition-all duration-300 opacity-0 translate-y-10"
            style="transition-delay: 0.2s">
           Our Work
         </a>
 
         <a href="/calculator" 
-           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
+           class="menu-link font-display uppercase text-3xl md:text-5xl font-bold hover:text-brand-gold transition-all duration-300 opacity-0 translate-y-10"
            style="transition-delay: 0.25s">
           Calculator
         </a>
         
-        <a href="tel:+251977240817" 
-           class="menu-link font-monument text-3xl md:text-5xl  hover:text-[#f5bd02] transition-all duration-300 opacity-0 translate-y-10 custom-cursor-link"
-           style="transition-delay: 0.3s">
-          Contact
-        </a>
 
       </nav>
 
       <div class="relative z-50 mt-16 flex gap-8 items-center menu-link opacity-0 translate-y-10" style="transition-delay: 0.4s">
-        <a href="https://web.facebook.com/helmcreativeet" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+        <a href="https://web.facebook.com/helmcreativeet" target="_blank" class="text-brand-white hover:text-brand-gold text-2xl transition-colors">
             <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <a href="https://www.instagram.com/helm_creative_et" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+        <a href="https://www.instagram.com/helm_creative_et" target="_blank" class="text-brand-white hover:text-brand-gold text-2xl transition-colors">
             <i class="fa-brands fa-instagram"></i>
         </a>
-        <a href="https://www.tiktok.com/@helm.creatives" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+        <a href="https://www.tiktok.com/@helm.creatives" target="_blank" class="text-brand-white hover:text-brand-gold text-2xl transition-colors">
             <i class="fa-brands fa-tiktok"></i>
         </a>
-        <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" class="text-white hover:text-[#f5bd02] text-2xl transition-colors custom-cursor-link">
+        <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" class="text-brand-white hover:text-brand-gold text-2xl transition-colors">
             <i class="fa-brands fa-linkedin-in"></i>
         </a>
       </div>
 
     </div>
 
-    <main class="relative z-10" transition:animate="fade">
+    <main class="relative z-10">
       <slot />
     </main>
 
-    <footer class="relative min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#0B0E14] text-[#f5f5f5] pt-40 pb-10 px-6 md:px-16">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-[#f5bd02] opacity-[0.05] blur-[120px] rounded-full pointer-events-none"></div>
+    <footer class="relative min-h-[65vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF9F6] text-[#1a1a1a] pt-20 pb-10 px-5 md:px-8 lg:px-10">
+      <div class="absolute inset-0 opacity-80" style="background:linear-gradient(135deg, rgba(26,26,26,0.025) 0%, rgba(26,26,26,0.01) 100%);"></div>
 
-      <div class="w-full flex flex-col md:flex-row justify-between items-end z-10 gap-12">
-        <div class="max-w-2xl">
-          <h3 class="font-monument text-4xl md:text-6xl leading-tight mb-8">
-            Need a <span class="text-[#f5bd02] italic">design?</span>
+      <div class="relative z-10 w-full flex flex-col md:flex-row justify-between items-start gap-10 md:gap-12">
+        <div class="max-w-xl">
+          <h3 class="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.06em] mb-8 text-[#1a1a1a]">
+            Let’s Talk
           </h3>
-          <a href="tel:+251977240817" class="inline-block border border-[#f5bd02] text-[#f5bd02] hover:bg-[#f5bd02] hover:text-black transition-all duration-500 px-10 py-5 rounded-full font-pangram-bold text-sm  tracking-widest custom-cursor-link">
-            Call Now
-          </a>
+
+          <div class="space-y-3 font-sans text-xl md:text-2xl leading-tight">
+            <a href="mailto:calebwesley98@gmail.com" class="block text-[#1a1a1a] hover:text-[#1a1a1a]/70 transition-colors">calebwesley98@gmail.com</a>
+            <a href="tel:+251959516667" class="block text-[#1a1a1a] hover:text-[#1a1a1a]/70 transition-colors">+251 959 516 667</a>
+          </div>
         </div>
-        
-        <div class="flex flex-col gap-4 text-right font-pangram text-sm  tracking-widest opacity-60">
-          <a href="https://www.tiktok.com/@helm.creatives" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">Tiktok</a>
-          <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">LinkedIn</a>
-          <a href="https://web.facebook.com/helmcreativeet/?_rdc=1&_rdr" target="_blank" class="hover:text-[#f5bd02] transition-colors custom-cursor-link">Facebook</a>
+
+        <div class="w-full max-w-xl flex flex-col gap-4 md:items-end">
+          <div class="flex items-center gap-4 md:gap-5 text-[#1a1a1a] text-xl md:text-2xl">
+            <a href="https://www.facebook.com/helmcreativeet" target="_blank" rel="noreferrer" aria-label="Facebook" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/helm_creative_et" target="_blank" rel="noreferrer" aria-label="Instagram" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@helm.creatives" target="_blank" rel="noreferrer" aria-label="TikTok" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/company/helm-creatives/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+
+          <div class="space-y-2 md:text-right">
+            <p class="font-display font-bold text-2xl md:text-3xl leading-tight text-[#1a1a1a]">Addis Ababa, Ethiopia</p>
+            <p class="font-display font-bold text-2xl md:text-3xl leading-tight text-[#1a1a1a]">Dubai, UAE</p>
+          </div>
         </div>
       </div>
 
-      <div class="relative w-full z-10 mt-24 border-t border-white/10 pt-8 flex flex-col items-center">
-        <div class="flex justify-between w-full text-[10px]  tracking-[0.4em] opacity-30 mb-12 font-pangram">
-          <span>© 2026 HELM™</span>
-          <span>Studio — Digital</span>
-        </div>
-        <img 
-          src="/logos/white_logo.png" 
-          alt="Helm Large" 
-          class="w-full h-auto object-contain opacity-[0.03] select-none pointer-events-none" 
-        />
+      <div class="relative z-10 flex justify-start md:justify-end mt-14 md:mt-20">
+        <img src="/logo-icon/main-black.png" alt="Helm Logo" class="h-12 md:h-16 w-auto object-contain" />
       </div>
     </footer>
 
     <script>
       const initLayout = () => {
-        const header = document.getElementById('site-header');
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuOverlay = document.getElementById('menu-overlay');
-        const loader = document.getElementById('loader');
-        const loaderBar = document.getElementById('loader-bar');
-        const lines = [document.getElementById('line-1'), document.getElementById('line-2')];
-        // Updated selector to include the social icons container which also has the menu-link class
+        const header = document.getElementById('site-header') as HTMLElement | null;
+        const menuToggle = document.getElementById('menu-toggle') as HTMLButtonElement | null;
+        const menuOverlay = document.getElementById('menu-overlay') as HTMLElement | null;
+        const line1 = document.getElementById('line-1') as HTMLElement | null;
+        const line2 = document.getElementById('line-2') as HTMLElement | null;
         const links = document.querySelectorAll('.menu-link, .menu-link a'); 
         let isOpen = false;
 
-        // Reset Menu on page change
+        if (!header || !menuToggle || !menuOverlay || !line1 || !line2) return;
+
         document.body.style.overflow = '';
 
-        // Function to Toggle Menu
         const toggleMenu = () => {
             isOpen = !isOpen;
-            // 1. Handle overlay position and opacity
             menuOverlay.classList.toggle('translate-x-full', !isOpen);
             menuOverlay.classList.toggle('opacity-0', !isOpen);
             
-            // 2. CRITICAL: Handle pointer events explicitly
             if (isOpen) {
                 menuOverlay.classList.remove('pointer-events-none');
                 menuOverlay.classList.add('pointer-events-auto');
@@ -223,12 +216,10 @@ const {
                 document.body.style.overflow = '';
             }
             
-            // 3. Burger Menu Animation
-            lines[0].style.transform = isOpen ? 'translateY(4px) rotate(45deg)' : 'none';
-            lines[1].style.transform = isOpen ? 'translateY(-3px) rotate(-45deg)' : 'none';
-            lines[1].style.width = isOpen ? '32px' : '20px';
+            line1.style.transform = isOpen ? 'translateY(4px) rotate(45deg)' : 'none';
+            line2.style.transform = isOpen ? 'translateY(-3px) rotate(-45deg)' : 'none';
+            line2.style.width = isOpen ? '32px' : '20px';
 
-            // 4. Animate Links In/Out
             const navLinks = document.querySelectorAll('.menu-link');
             navLinks.forEach(link => {
                 link.classList.toggle('opacity-0', !isOpen);
@@ -236,120 +227,20 @@ const {
             });
         };
 
-        // Menu Click Logic
         menuToggle.onclick = toggleMenu;
 
-        // Make links clickable and close menu upon clicking
         links.forEach(link => {
             link.addEventListener('click', () => {
-                // When a link is clicked, we want to close the menu immediately
-                // so the user sees the transition/loader
                 if(isOpen) toggleMenu();
             });
-        });
-
-
-        /* --- Custom Cursor Logic --- */
-        const cursorOuter = document.getElementById('cursor-outer');
-        const cursorInner = document.getElementById('cursor-inner');
-        const customCursor = document.getElementById('custom-cursor');
-        
-        if ('ontouchstart' in window || navigator.maxTouchPoints) {
-          customCursor.style.display = 'none';
-          document.body.classList.remove('cursor-none');
-        } else {
-          let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-          
-          document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            customCursor.style.opacity = '1';
-          });
-          
-          document.addEventListener('mouseleave', () => customCursor.style.opacity = '0');
-          document.addEventListener('mouseenter', () => customCursor.style.opacity = '1');
-          
-          const animateCursor = () => {
-            cursorX += (mouseX - cursorX) * 0.15;
-            cursorY += (mouseY - cursorY) * 0.15;
-            cursorOuter.style.left = cursorX + 'px';
-            cursorOuter.style.top = cursorY + 'px';
-            cursorInner.style.left = cursorX + 'px';
-            cursorInner.style.top = cursorY + 'px';
-            requestAnimationFrame(animateCursor);
-          };
-          animateCursor();
-          
-          // Re-attach listeners to all clickable elements (including new social icons)
-          const attachCursorListeners = () => {
-              const cursorLinks = document.querySelectorAll('.custom-cursor-link, a, button, [role="button"]');
-              cursorLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                  cursorOuter.style.width = '48px';
-                  cursorOuter.style.height = '48px';
-                  cursorOuter.style.borderColor = '#f5bd02';
-                  cursorOuter.style.backgroundColor = 'rgba(245, 189, 2, 0.1)';
-                  cursorInner.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                });
-                link.addEventListener('mouseleave', () => {
-                  cursorOuter.style.width = '32px';
-                  cursorOuter.style.height = '32px';
-                  cursorOuter.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                  cursorOuter.style.backgroundColor = 'transparent';
-                  cursorInner.style.transform = 'translate(-50%, -50%) scale(1)';
-                });
-              });
-          };
-          attachCursorListeners();
-        }
-
-        /* --- Page Transition Logic --- */
-        const curtain = document.getElementById('curtain');
-        const curtainLeft = document.getElementById('curtain-left');
-        const curtainRight = document.getElementById('curtain-right');
-
-        const showCurtain = () => {
-          curtain.classList.add('active');
-          curtainLeft.style.transition = 'transform 420ms cubic-bezier(0.7,0,0.3,1)';
-          curtainRight.style.transition = 'transform 420ms cubic-bezier(0.7,0,0.3,1)';
-          curtainLeft.style.transform = 'translateX(0)';
-          curtainRight.style.transform = 'translateX(0)';
-          customCursor.style.opacity = '0';
-        };
-
-        const hideCurtain = () => {
-          curtainLeft.style.transition = 'transform 520ms cubic-bezier(0.2,0,0,1) 120ms';
-          curtainRight.style.transition = 'transform 520ms cubic-bezier(0.2,0,0,1) 120ms';
-          curtainLeft.style.transform = 'translateX(-100%)';
-          curtainRight.style.transform = 'translateX(100%)';
-          setTimeout(() => {
-            curtain.classList.remove('active');
-            customCursor.style.opacity = '1';
-          }, 800);
-        };
-
-        document.addEventListener('astro:before-preparation', () => {
-          loader.classList.remove('opacity-0');
-          loaderBar.style.transition = 'transform 1.5s cubic-bezier(0.7, 0, 0.3, 1)';
-          loaderBar.style.transform = 'translateX(0)';
-          showCurtain();
-        });
-
-        document.addEventListener('astro:after-preparation', () => {
-          loader.classList.add('opacity-0');
-          setTimeout(() => {
-            loaderBar.style.transition = 'none';
-            loaderBar.style.transform = 'translateX(-100%)';
-          }, 500);
-          setTimeout(hideCurtain, 80);
         });
 
         /* --- Header Scroll Logic --- */
         const handleScroll = () => {
           if (window.scrollY > 50) {
-            header.classList.add('bg-[#0B0E14]/80', 'backdrop-blur-xl', 'py-5', 'border-b', 'border-white/5');
+            header.classList.add('bg-brand-navy/80', 'backdrop-blur-xl', 'py-5', 'border-b', 'border-brand-white/5');
           } else {
-            header.classList.remove('bg-[#0B0E14]/80', 'backdrop-blur-xl', 'py-5', 'border-b', 'border-white/5');
+            header.classList.remove('bg-brand-navy/80', 'backdrop-blur-xl', 'py-5', 'border-b', 'border-brand-white/5');
           }
         };
         window.addEventListener('scroll', handleScroll);
@@ -357,30 +248,9 @@ const {
       };
 
       initLayout();
-      document.addEventListener('astro:after-swap', initLayout);
     </script>
 
     <style is:global>
-      @import "tailwindcss";
-      
-      /* View Transitions Styling */
-      ::view-transition-old(root) {
-        animation: 0.4s cubic-bezier(0.7, 0, 0.3, 1) both slide-out;
-      }
-      ::view-transition-new(root) {
-        animation: 0.6s cubic-bezier(0.7, 0, 0.3, 1) both slide-in;
-      }
-
-      @keyframes slide-out {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(-30px); opacity: 0; }
-      }
-
-      @keyframes slide-in {
-        from { transform: translateX(30px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-
       /* Global Image & Text Loading Reveal */
       img, h1, h2, h3, p {
         animation: reveal 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
@@ -391,48 +261,8 @@ const {
         to { opacity: 1; filter: blur(0); transform: translateY(0); }
       }
 
-      /* Curtain panels */
-      #curtain { pointer-events: none; }
-      #curtain-left, #curtain-right { will-change: transform, opacity; }
-      #curtain.active { pointer-events: auto; }
-
-      /* Custom Cursor */
-      #custom-cursor { opacity: 0; transition: opacity 0.3s ease; }
-      #cursor-outer, #cursor-inner { will-change: transform; pointer-events: none; }
-
-      @media (hover: hover) and (pointer: fine) {
-        * { cursor: none !important; }
-        input, textarea, [contenteditable] { cursor: text !important; }
-      }
-
       .cubic-bezier { transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
       
-      /* Font Declarations */
-      @font-face {
-        font-family: 'Monument Extended';
-        src: url('/fonts/MonumentExtended-Regular.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Pangram Sans';
-        src: url('/fonts/Pangram-Regular.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Pangram Sans';
-        src: url('/fonts/Pangram-Bold.otf') format('opentype');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-      .font-monument { font-family: 'Monument Extended', sans-serif; }
-      .font-pangram { font-family: 'Pangram Sans', sans-serif; }
-      .font-pangram-bold { font-family: 'Pangram Sans', sans-serif; font-weight: 700; }
-
       ::-webkit-scrollbar { width: 0px; background: transparent; }
     </style>
   </body>

@@ -8,76 +8,133 @@ export interface Props {
     caseStudy: string;
   }>;
 }
+
 const { workProjects } = Astro.props;
+
+// Compute grid classes dynamically:
+// Row 0: Left larger (7 cols), Right smaller (5 cols)
+// Row 1: Left smaller (5 cols), Right larger (7 cols)
+// Alternates continuously across all rows.
+function getColSpanClass(index: number) {
+  const row = Math.floor(index / 2);
+  const isEvenRow = row % 2 === 0;
+  const isFirstInRow = index % 2 === 0;
+
+  if (isEvenRow) {
+    return isFirstInRow ? "md:col-span-7" : "md:col-span-5";
+  } else {
+    return isFirstInRow ? "md:col-span-5" : "md:col-span-7";
+  }
+}
+
+const gridItems = workProjects.map((project, index) => ({
+  project,
+  colSpanClass: getColSpanClass(index),
+}));
 ---
 
-<section id="our-work" class="relative w-full py-16 md:py-40 bg-[#f5f5f5] overflow-hidden text-[#0B0E14]">
-  <div class="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-    
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
-      <div class="max-w-xl">
-        <span class="font-pangram-bold text-[#f5bd02] text-[10px] md:text-xs  tracking-[0.3em] mb-3 md:mb-4 block">
-          Selected Projects
-        </span>
-        <h3 class="font-monument text-3xl md:text-6xl leading-tight md:leading-none">
-          Crafting <br class="hidden md:block" /> <span class="italic text-transparent stroke-black">Digital</span> Legacies
-        </h3>
-      </div>
-      <p class="font-pangram text-xs md:text-base max-w-xs opacity-70 leading-relaxed border-l border-black/10 pl-4 md:pl-6">
-        We blend strategy with high-end aesthetics to build brands that lead. Explore our latest creative interventions.
+<section id="our-work" class="relative w-full bg-[#FAF9F6] py-12 md:py-20">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 lg:px-10">
+    <!-- Header: right-aligned, small and legible -->
+    <div class="mb-10 flex justify-end">
+      <p class="max-w-xs text-right font-sans text-[25px] md:text-[30px] leading-snug tracking-[-0.01em] text-[#1a1a1a]">
+        We transform ambitious brands so they
+        dominate their market.
       </p>
     </div>
 
-    <div class="work-marquee-wrapper relative cursor-grab active:cursor-grabbing">
-      <div class="work-track flex gap-4 md:gap-8 items-start w-max">
-        {workProjects.concat(workProjects).map((project, i) => (
-          <div class="work-item group relative flex-shrink-0 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-black/5 bg-black/5">
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-5 md:p-8">
-              <a href={project.url} class="text-white font-monument text-lg md:text-xl md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
-                {project.caseStudy}
-              </a>
-              <span class="text-[#f5bd02] font-pangram text-[10px] md:text-xs  tracking-widest mt-1 md:mt-2">
-                {project.service} — {project.year}
-              </span>
-            </div>
-            
-            <img 
-              src={project.image} 
-              alt={`${project.service} Project`} 
-              class="h-[45vh] md:h-[75vh] w-auto object-cover grayscale-[20%] md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700 ease-out" 
-              loading="lazy" 
+    <!-- Alternating 2-Column Grid Layout with spacing -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 border-t border-b border-[#1a1a1a]/10 py-8 md:py-12">
+      {gridItems.map(({ project, colSpanClass }) => (
+        <article class={`group flex flex-col ${colSpanClass}`}>
+          <div class="overflow-hidden bg-[#D9D4CF] relative cursor-none">
+            <img
+              src={project.image}
+              alt={`${project.service} Project`}
+              class="project-card-img h-[350px] md:h-[500px] lg:h-[550px] w-full object-cover"
+              loading="lazy"
+              data-preview={project.image}
             />
           </div>
-        ))}
-      </div>
+
+          <div class="py-4 pr-4 flex flex-col justify-between">
+            <div>
+              <p class="font-display font-bold text-base md:text-lg leading-tight tracking-[-0.02em] text-[#1a1a1a]">
+                {project.caseStudy}
+              </p>
+              <p class="mt-1 font-sans text-xs tracking-normal text-[#1a1a1a]/70">
+                {project.service}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
-    
-    <div class="mt-8 md:mt-12 flex justify-between items-center opacity-30 font-pangram text-[9px] md:text-[10px]  tracking-[0.2em]">
-      <span>Drag to Explore</span>
-      <div class="h-[1px] flex-grow mx-4 md:mx-8 bg-black/20"></div>
-      <span>Scroll for More</span>
-    </div>
+  </div>
+
+  <!-- Custom Floating Cursor element — kept as the LAST element in the
+       section so it always paints on top of everything above it, and
+       given an explicit inline z-index so no other z-index class or
+       stacking context can bury it. -->
+  <div
+    id="custom-cursor"
+    style="z-index: 9999; opacity: 0;"
+    class="pointer-events-none fixed top-0 left-0 h-28 w-28 -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-[#1a1a1a]/20 transition-opacity duration-300 ease-out shadow-2xl"
+  >
+    <img
+      id="cursor-img"
+      src=""
+      alt="Hover preview"
+      class="h-full w-full object-cover"
+    />
   </div>
 </section>
 
-<style>
-  /* Seamless Marquee Animation */
-  .work-track {
-    animation: scroll 40s linear infinite;
-  }
+<script>
+  // Floating cursor thumbnail — kept deliberately simple:
+  // 1. Move the cursor element to <body> so no ancestor on the page
+  //    (overflow-hidden, transform, etc.) can ever clip or reposition
+  //    a `position: fixed` element — the #1 cause of "cursor hides but
+  //    thumbnail never shows".
+  // 2. Toggle visibility with plain inline styles, not Tailwind classes,
+  //    so nothing depends on those utility classes existing in the
+  //    compiled CSS.
+  const cursor = document.getElementById('custom-cursor');
+  const cursorImg = document.getElementById('cursor-img') as HTMLImageElement | null;
 
-  .work-track:hover {
-    animation-play-state: paused;
-  }
+  if (cursor && cursorImg) {
+    document.body.appendChild(cursor);
 
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
 
-  /* Outline text helper */
-  .stroke-black {
-    -webkit-text-stroke: 1px #0B0E14;
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Smooth follow via requestAnimationFrame
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.15;
+      cursorY += (mouseY - cursorY) * 0.15;
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+
+    // Bind directly to each project image
+    document.querySelectorAll<HTMLImageElement>('.project-card-img').forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const previewUrl = img.getAttribute('data-preview');
+        if (previewUrl) cursorImg.src = previewUrl;
+        cursor.style.opacity = '1';
+      });
+
+      img.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+      });
+    });
   }
-</style>
+</script>

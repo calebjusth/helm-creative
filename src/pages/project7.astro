@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Brand Colors:
+// Primary Orange: #FF5F1F (Main brand color)
+// Light Neutral: #f9f7f2 (Soft background)
+// Dark Neutral: #0a0a0a (Text and accents)
+
+const clientData = {
+  name: "Evolve Bussiness Group",
+  location: "Ethiopia",
+  year: "2025",
+  services: ["Website redesign", "SEO"],
+  outcome: "Complete Website Transformation + Modern Digital Presence"
+};
+
+// SEO metadata
+const seoData = {
+  title: "Evolve Bussiness Group - Website redesign Case Study",
+  description: "Complete website redesign for Evolve Bussiness Group, an Ethiopian leading company that is transforming the construction, transportation, import and export and industrial sectors.",
+  canonical: "https://helmcreative/project7/",
+  keywords: "Website redesign, Evolve Bussiness Group, ",
+};
+---
+
+<Layout 
+  title={seoData.title}
+  description={seoData.description}
+  canonical={seoData.canonical}
+>
+<section class="relative min-h-screen w-full flex items-end pb-24 overflow-hidden bg-brand-navy">
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/portfolio/evolve/evolve-mockup.jpg" 
+      alt="Evolve Business Group Mockup" 
+      class="h-full w-full object-cover object-center scale-105"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-navy/20 to-brand-navy/90"></div>
+  </div>
+
+  <div class="container relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+    <div class="flex flex-col items-start space-y-8">
+      <div class="flex items-center gap-4 opacity-0 animate-fade-in-up [animation-fill-mode:forwards]">
+        <div class="h-[1px] w-12 bg-brand-gold"></div>
+        <span class="text-xs uppercase tracking-[0.5em] text-brand-white/80 font-medium">Enterprise Redesign</span>
+      </div>
+
+      <h1 class="font-display text-6xl md:text-8xl lg:text-[9rem] font-bold leading-[0.85] tracking-tighter text-brand-white opacity-0 animate-fade-in-up [animation-delay:200ms] [animation-fill-mode:forwards]">
+        Evolve<span class="text-brand-gold">.</span><br/>
+        <span class="ml-0 md:ml-20 lg:ml-40 text-brand-white/90">Group</span>
+      </h1>
+
+      <div class="max-w-xl   ">
+        <p class="text-lg md:text-xl text-brand-white/60 leading-relaxed font-light">
+          Redefining the digital frontier for Ethiopia's leading B2B conglomerate. A study in quiet luxury across construction, logistics, and industrial sectors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-brand-navy py-32 border-t border-brand-white/5">
+  <div class="container mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      
+      <div class="md:col-span-7">
+        <h2 class="text-3xl md:text-5xl font-display font-medium text-brand-white leading-tight">
+          Crafting a <span class="text-brand-gold italic">unified</span> digital language for a multi-sector powerhouse.
+        </h2>
+      </div>
+
+      <div class="md:col-span-5 grid grid-cols-1 gap-12 border-l border-brand-white/10 pl-8 md:pl-16">
+        
+        <div class="group">
+          <p class="text-[10px] uppercase tracking-[0.4em] text-brand-white/40 mb-4 group-hover:text-brand-gold transition-colors duration-500">Service Scope</p>
+          <p class="text-2xl font-display text-brand-white font-light">Lead Design & Full-Stack Architecture</p>
+        </div>
+
+        <div class="group">
+          <p class="text-[10px] uppercase tracking-[0.4em] text-brand-white/40 mb-4 group-hover:text-brand-gold transition-colors duration-500">Live Experience</p>
+          <a href="https://evolveaddis.com" target="_blank" class="relative inline-block text-2xl font-display text-brand-white group">
+            <span class="relative z-10">evolveaddis.com</span>
+            <span class="absolute bottom-0 left-0 w-full h-[1px] bg-brand-gold origin-right scale-x-0 transition-transform duration-500 group-hover:scale-x-100 group-hover:origin-left"></span>
+            <span class="ml-2 text-brand-gold opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 inline-block text-sm">↗</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="w-full bg-[radial-gradient(circle_at_top,_rgba(245,189,2,0.08),_transparent_55%)] text-brand-navy py-24 px-6 md:px-12 lg:px-20">
+
+    <div class="container mx-auto max-w-6xl">
+
+      <div class="mb-12 text-center">
+
+        <span class="inline-block text-sm uppercase tracking-[0.35em] text-brand-gold/70 mb-4">Before & After</span>
+
+        <h2 class="font-display text-4xl md:text-5xl leading-tight text-brand-white">A modern redesign that transforms trust and clarity.</h2>
+
+      </div>
+
+      <div class="rounded-[2rem] border overflow-hidden">
+
+        <img src="/portfolio/evolve/before_after.svg" alt="Evolve Business Group Before and After Website Redesign" class="w-full h-auto block" />
+
+      </div>
+
+    </div>
+
+  </section> 
+
+ <section class="w-full bg-brand-navy py-32 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-brand-gold/5 blur-[120px] rounded-full"></div>
+
+  <div class="container mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+      
+
+
+      <div class="space-y-12 lg:mt-32">
+        <div class="inline-flex items-center gap-3">
+          <span class="h-[1px] w-8 bg-brand-gold"></span>
+          <span class="text-[10px] uppercase tracking-[0.5em] text-brand-gold">The Shift</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-6xl text-brand-white leading-tight">
+          Engineering <br/><span class="text-brand-gold">Absolute Trust.</span>
+        </h2>
+        <p class="text-xl text-brand-white/80 font-light leading-relaxed">
+          We rebuilt the foundation using <span class="text-brand-gold font-medium">Django</span> for fast delivery and a custom <span class="text-brand-gold font-medium">tagwail CMS</span> architecture to manage four distinct business sectors under one premium roof.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-brand-white py-32 px-6 md:px-12 lg:px-20 text-brand-navy">
+  <div class="container mx-auto max-w-7xl">
+    <div class="mb-20 space-y-4">
+      <span class="text-[10px] uppercase tracking-[0.5em] text-brand-navy/40">Multi-Sector Architecture</span>
+      <h2 class="font-display text-5xl md:text-7xl">Four Industries. <br/>One Vision.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[300px] md:auto-rows-[350px] gap-4">
+      
+      <div class="md:col-span-8 md:row-span-2 group relative overflow-hidden rounded-3xl bg-gray-100">
+        <img 
+          src="/portfolio/evolve/construction.jpg" 
+          alt="Construction & Infrastructure" 
+          class="absolute inset-0 h-full w-full object-cover transition-transform " 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/20 to-transparent opacity-90"></div>
+        <div class="absolute bottom-12 left-12 z-10">
+          <span class="text-[10px] uppercase tracking-[0.4em] text-brand-gold">Vertical 01</span>
+          <h3 class="text-4xl md:text-5xl font-display text-brand-white mt-4 tracking-tighter">Construction & <br/>Infrastructure</h3>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 md:row-span-2 group relative overflow-hidden rounded-3xl bg-gray-100">
+        <img 
+          src="/portfolio/evolve/industrial.jpg" 
+          alt="Industrial Manufacturing" 
+          class="absolute inset-0 h-full w-full object-cover transition-transform " 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent opacity-90"></div>
+        <div class="absolute bottom-10 left-10 z-10">
+          <span class="text-[10px] uppercase tracking-[0.4em] text-brand-gold">Vertical 02</span>
+          <h3 class="text-3xl font-display text-brand-white mt-2 tracking-tight">Industrial <br/>Manufacturing</h3>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-gray-100">
+        <img 
+          src="/portfolio/evolve/import_export.jpg" 
+          alt="Global Export" 
+          class="absolute inset-0 h-full w-full object-cover transition-transform " 
+        />
+        <div class="absolute inset-0 bg-brand-navy/40 group-hover:bg-brand-navy/20 transition-colors duration-500"></div>
+        <div class="absolute inset-0 p-10 flex flex-col justify-end">
+          <h3 class="text-2xl font-display text-brand-white tracking-tight">Global Export</h3>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-gray-100">
+        <img 
+          src="/portfolio/evolve/transport.jpg" 
+          alt="Logistics & Transport" 
+          class="absolute inset-0 h-full w-full object-cover transition-transform " 
+        />
+        <div class="absolute inset-0 bg-brand-navy/40 group-hover:bg-brand-navy/20 transition-colors duration-500"></div>
+        <div class="absolute inset-0 p-10 flex flex-col justify-end">
+          <h3 class="text-2xl font-display text-brand-white tracking-tight">Logistics & Transport</h3>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-brand-gold flex flex-col justify-center items-center text-center p-10">
+        <div class="space-y-4">
+          <h3 class="text-brand-navy font-display text-3xl leading-tight tracking-tighter">Your project <br/>could be next.</h3>
+          <a href="https://t.me/alpha_valley" target="_blank" class="inline-flex items-center gap-2 text-brand-navy text-[10px] uppercase tracking-[0.3em] font-bold border-b border-brand-navy/20 pb-1 hover:border-brand-navy transition-all">
+            LETS WORK TOGETHER →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="w-full bg-brand-navy py-40 px-6 text-center overflow-hidden relative">
+  <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-display font-black text-brand-white/[0.02] whitespace-nowrap select-none pointer-events-none">
+    HELM CREATIVE
+  </span>
+
+  <div class="container relative z-10 mx-auto max-w-4xl">
+    <div class="space-y-8">
+      <h2 class="font-display text-5xl md:text-7xl text-brand-white leading-tight">
+        Ready to <span class="italic text-brand-gold">Evolve</span> your brand?
+      </h2>
+      <p class="text-brand-white/60 text-xl font-light max-w-2xl mx-auto">
+        We specialize in transforming complex business groups into premium digital leaders. Your next major milestone starts with a conversation.
+      </p>
+      
+      <div class="pt-8">
+        <a href="https://t.me/alpha_valley" target="_blank" class="group relative inline-flex items-center gap-6 px-12 py-6 rounded-full border border-brand-white/20 text-brand-white overflow-hidden transition-all hover:border-brand-gold">
+          <span class="relative z-10 text-lg font-medium tracking-wider">START YOUR PROJECT</span>
+          <div class="absolute inset-0 bg-brand-gold translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+          <span class="relative z-10 group-hover:text-brand-navy transition-colors">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</Layout>

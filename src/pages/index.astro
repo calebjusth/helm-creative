@@ -3,18 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import TrustedBySection from '../components/TrustedBySection.astro';
 import CreativeSupportSection from '../components/CreativeSupportSection.astro';
-import ManifestoSection from '../components/ManifestoSection.astro';
-import RevealSection from '../components/RevealSection.astro';
-import IssueSection from '../components/IssueSection.astro';
 import OurWorkSection from '../components/OurWorkSection.astro';
 import OurService from '../components/OurService.astro';
 import FAQSection from '../components/FAQSection.astro';
 
 // --- DATA ---
 
-const column1 = ["/work/evolve_work.jpg", "/work/slm_work.jpg", "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80"];
+const column1 = ["/work/evolve_work.jpg", "/work/slm_work.jpg", "/work/bertu-work.jpg"];
 
-const column2 = ["/work/abulo_work.jpg", "/work/ephrat_work.jpg", "/work/yeru_work.jpg"];
+const column2 = ["/work/abulo_work.jpg", "/work/dari-mockup.jpg", "/work/yeru_work.jpg"];
 
 const column3 = ["/work/abetu.jpg", "/work/dimma_work.jpg", "/work/ggd_work.jpg"];
 
@@ -40,87 +37,91 @@ const logosRow1 = [
 
 
 const logosRow2 = [
+  { name: 'Bertu', src: '/companies/bertu.png'},
   { name: 'Abetu', src: '/companies/abetu.png'},
   { name: 'GGD', src: '/companies/ggd.png' },
   { name: 'Africa', src: '/companies/africa.png' },
   { name: 'Kuku', src: '/companies/kuku.png' },
-  { name: 'Glamour', src: '/companies/glamour.png' },
   { name: 'NEXTGEN', src: '/companies/nextgen.png' },
   { name: 'GGD', src: '/companies/ggd.png' }, 
   { name: 'Africa', src: '/companies/africa.png' },
 ];
 
 const workProjects = [
-  {
-    image: '/work/evolve_work.jpg',
-    service: 'Corporate Web Development',
-    year: '2/025',
-    url: '#',
-    caseStudy: 'Case Study Coming Soon'
+   {
+    image: '/work/noma-cover.jpg',
+    service: 'Branding, Logo Design',
+    year: '2026',
+    url: '/project6',
+    caseStudy: 'Noma'
   },
   {
-    image: '/work/abulo_work.jpg',
-    service: 'Complete Brand & Web Development',
+    image: '/work/vertex-cover.jpg',
+    service: 'Branding, Logo Design',
+    year: '2025',
+    url: 'project7',
+    caseStudy: 'Vertex Events'
+  },
+  {
+    image: '/work/quill-cover.png',
+    service: 'Branding, Logo Design',
     year: '2026',
     url: '/project1',
-    caseStudy: 'View Project'
+    caseStudy: 'Quill Living'
   },
   {
-    image: '/work/ephrat_work.jpg',
-    service: 'Web Development',
-    year: '2025',
+    image: '/work/ethchess-cover.webp',
+    service: 'Branding, Full Creative Managment',
+    year: '2026',
     url: '#',
-    caseStudy: 'Case Study Coming Soon'
+    caseStudy: 'Ethchess Sport Club'
   },
   {
-    image: '/work/slm_work.jpg',
-    service: 'Complete Brand & Web Development',
+    image: '/work/ethiopian-airlines-cover.webp',
+    service: 'Conceptual Campaign',
     year: '2026',
     url: '/project2',
-    caseStudy: 'View Project'
+    caseStudy: 'Ethiopian Airlines'
   },
   {
-    image: '/work/ggd_work.jpg',
-    service: 'SEO & Web Design',
-    year: '2024',
+    image: '/work/dari-events-cover.webp',
+    service: 'Website, Design, Development, SEO',
+    year: '2026',
     url: '/project4',
-    caseStudy: 'View Case Study'
+    caseStudy: 'Dari Events'
   },
   {
-    image: '/work/dimma_work.jpg',
-    service: 'Web Development',
-    year: '2025',
+    image: '/work/yeru-cover.webp',
+    service: 'Website, Design, Development, SEO',
+    year: '2026',
     url: '#',
-    caseStudy: 'Case Study Coming Soon'
+    caseStudy: 'Yeru Beauty'
   },
 
   {
-    image: '/work/yeru_work.jpg',
-    service: 'SEO Strategy',
+    image: '/work/evolve-cover.webp',
+    service: 'Website, Design, Development',
     year: '2025',
     url: '/project3',
-    caseStudy: 'View Case Study'
+    caseStudy: 'Evolve Bussines Group'
   },
 
    {
-    image: '/work/abetu.jpg',
-    service: 'Web Development',
+    image: '/work/wabi-cover.webp',
+    service: 'Branding, Website, Design, Development',
     year: '2026',
     url: '/project5',
-    caseStudy: 'View Case Study'
+    caseStudy: 'Wabi Awards'
   }
 ];
 
 ---
 
-<Layout title="Home">
+<Layout title="Helm">
   <HeroSection allCols={allCols} />
-  <TrustedBySection logosRow1={logosRow1} logosRow2={logosRow2} />
-  <ManifestoSection />
-  <OurWorkSection workProjects={workProjects} />
   <OurService />
-  <RevealSection />
-  <IssueSection />
+  <TrustedBySection logosRow1={logosRow1} logosRow2={logosRow2} />
+  <OurWorkSection workProjects={workProjects} />
   <CreativeSupportSection />
   <FAQSection />
 
@@ -269,22 +270,8 @@ const workProjects = [
     };
 
     splitTextIntoWords(textElement);
-    const words = textElement.querySelectorAll('.reveal-word');
+   
 
-    gsap.set(words, { color: "#525252", filter: "blur(8px)", opacity: 0.2 });
-
-    gsap.to(words, {
-      color: "#ffffff",
-      filter: "blur(0px)",
-      opacity: 1,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: textElement,
-        start: "top 80%",
-        end: "bottom 50%",
-        scrub: 1,
-      }
-    });
   };
 
   // --- 7. SECTION REVEAL - FIXED VERSION ---

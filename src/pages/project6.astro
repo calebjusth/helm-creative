@@ -1,0 +1,562 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Brand Colors:
+// Primary Orange: #FF5F1F (Main brand color)
+// Light Neutral: #f9f7f2 (Soft background)
+// Dark Neutral: #0a0a0a (Text and accents)
+
+const clientData = {
+  name: "Bertu Media",
+  location: "Ethiopia",
+  year: "2026",
+  services: ["Visual Identity", "Logo Design", "Website Design"],
+  outcome: "Complete Brand Transformation + Modern Digital Presence"
+};
+
+// SEO metadata
+const seoData = {
+  title: "Bertu Media - Community Platform Brand Transformation Case Study",
+  description: "Complete visual identity redesign for Bertu Media, an Ethiopian community platform focused on charity, entertainment, and news. Modern brand system with custom logo and website design.",
+  canonical: "https://helmcreative/project6/",
+  keywords: "brand identity design Ethiopia, media company branding, community platform design, logo redesign, visual identity system"
+};
+---
+
+<Layout 
+  title={seoData.title}
+  description={seoData.description}
+  canonical={seoData.canonical}
+  ogImage={seoData.ogImage}
+>
+  
+  <!-- Image Protection Overlay -->
+  <div style="display: none;" aria-hidden="true">
+    <div class="protection-overlay" onclick="return false;" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;" oncopy="return false;"></div>
+  </div>
+
+  <!-- Disable developer tools warning -->
+  <script is:inline>
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+          (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+          (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Bertu Media Brand Identity",
+      "description": "Complete visual identity redesign for Ethiopian community platform",
+      "creator": {
+        "@type": "Organization",
+        "name": "Helm Creative Agency"
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "Bertu Media",
+        "description": "Independent community platform for charity, entertainment and news in Ethiopia",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ethiopia"
+        }
+      },
+      "keywords": "brand identity, logo design, media branding, Ethiopia",
+      "dateCreated": "2025"
+    }
+  </script>
+
+  <section class="relative min-h-screen w-full bg-[#0a0a0a] flex flex-col justify-between pt-40 pb-12 px-6 md:px-12">
+    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');" aria-hidden="true"></div>
+
+    <div class="container mx-auto z-10">
+      <!-- SEO Header -->
+      <header class="sr-only">
+        <h1>Bertu Media - Community Platform Brand Transformation Case Study by Helm Creative Agency</h1>
+        <p>Complete visual identity redesign for Ethiopian media platform focused on charity, entertainment, and news.</p>
+      </header>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-[#f9f7f2]/20 pb-12 mb-12">
+        <div>
+          <span class="block text-[#FF5F1F] font-pangram text-xs tracking-[0.3em] mb-4" aria-label="Case study presentation">Brand Transformation</span>
+          <h1 class="font-monument text-5xl md:text-8xl lg:text-9xl text-[#f9f7f2] leading-[0.9]">
+            Bertu <br />
+            <span class="text-[#FF5F1F] italic font-serif">Media</span>
+          </h1>
+        </div>
+        <div class="mt-8 md:mt-0 max-w-sm">
+          <p class="text-[#f9f7f2]/80 font-pangram text-sm leading-relaxed">
+            From an outdated logo to a bold, modern visual identity—building a cohesive brand system for Ethiopia's emerging community platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-[#f9f7f2]/60 font-pangram text-xs tracking-widest">
+        <div itemscope itemtype="https://schema.org/Organization">
+          <span class="block text-[#FF5F1F] mb-2">Client</span>
+          <span itemprop="name">{clientData.name}</span>
+        </div>
+        <div itemscope itemtype="https://schema.org/Place">
+          <span class="block text-[#FF5F1F] mb-2">Location</span>
+          <span itemprop="address">{clientData.location}</span>
+        </div>
+        <div>
+          <span class="block text-[#FF5F1F] mb-2">Services</span>
+          {clientData.services.join(", ")}
+        </div>
+        <div>
+          <span class="block text-[#FF5F1F] mb-2">Year</span>
+          <time datetime="2025">{clientData.year}</time>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true">
+      <div class="w-[1px] h-12 bg-[#FF5F1F]"></div>
+      <span class="text-[#FF5F1F] text-[10px] tracking-widest">Scroll</span>
+    </div>
+  </section>
+
+  
+  <section class="bg-[#f9f7f2] text-[#0a0a0a] py-40 md:py-64 px-6 md:px-12">
+    <div class="container mx-auto">
+      <div class="grid md:grid-cols-12 gap-12 items-start">
+        
+        <div class="md:col-span-4 sticky top-24">
+          <span class="block text-[#FF5F1F] font-pangram-bold text-xs tracking-[0.3em] mb-8">The Challenge</span>
+          <h2 class="font-monument text-4xl md:text-6xl leading-none mb-8 text-[#0a0a0a]">
+            From <br /><span class="italic font-serif text-[#FF5F1F]">Invisible</span>
+          </h2>
+          <div class="h-[1px] w-12 bg-[#0a0a0a] mt-8" aria-hidden="true"></div>
+        </div>
+
+        <div class="md:col-span-8 space-y-32">
+  
+  <p class="text-xl md:text-3xl font-pangram leading-relaxed text-[#0a0a0a]">
+    Bertu Media had the vision, a community platform for charity, entertainment, and news, but their visual identity wasn't reflecting their ambition. We built them a cohesive brand system from the ground up.
+  </p>
+
+  <!-- Before/After Logo Section -->
+  <div class="grid md:grid-cols-2 gap-12">
+    <div>
+      <h3 class="font-monument text-2xl text-[#0a0a0a] mb-8">Before</h3>
+      <div class="bg-[#f9f7f2] aspect-square w-full relative overflow-hidden image-protection border-2 border-[#0a0a0a]/10">
+        <img 
+          src="/portfolio/bertu/previous_logo.jpg" 
+          alt="Bertu Media original logo - outdated design" 
+          class="w-full h-full object-contain"
+          loading="lazy"
+          draggable="false"
+          oncontextmenu="return false;"
+        />
+      </div>
+      <p class="mt-4 text-xs font-mono text-[#0a0a0a]/60">Original Logo — Lacked impact and memorability</p>
+    </div>
+    <div>
+      <h3 class="font-monument text-2xl text-[#0a0a0a] mb-8">After <span class="text-[#FF5F1F] text-sm ml-2">(New)</span></h3>
+      <div class="bg-[#f9f7f2] aspect-square w-full relative overflow-hidden image-protection border-2 border-[#FF5F1F]">
+        <img 
+          src="/portfolio/bertu/bertu.jpg" 
+          alt="Bertu Media new logo - modern, bold design with orange accent" 
+          class="w-full h-full object-contain"
+          loading="lazy"
+          draggable="false"
+          oncontextmenu="return false;"
+        />
+      </div>
+      <p class="mt-4 text-xs font-mono text-[#0a0a0a]/60">New Logo — Bold, memorable, unmistakably Bertu</p>
+    </div>
+  </div>
+
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Visual System Section -->
+<section class="bg-[#0a0a0a] py-40 px-6 md:px-12">
+    <div class="container mx-auto">
+      <div class="text-center mb-24">
+        <span class="block text-[#FF5F1F] font-pangram-bold text-xs tracking-[0.3em] mb-4">Visual Identity</span>
+        <h2 class="font-monument text-5xl md:text-7xl text-[#f9f7f2] mb-8">
+          Building a <span class="italic font-serif text-[#FF5F1F]">System</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-[#f9f7f2]/60 font-pangram text-lg">
+          Not just a logo—a complete visual language that works across charity, entertainment, and news
+        </p>
+      </div>
+
+      <!-- Color Palette -->
+      <div class="grid md:grid-cols-3 gap-8 mb-32">
+        <div class="bg-[#FF5F1F] aspect-[2/1] flex items-end p-6">
+          <span class="font-mono text-xs text-[#0a0a0a] font-bold">PRIMARY #FF5F1F</span>
+        </div>
+        <div class="bg-[#f9f7f2] aspect-[2/1] flex items-end p-6 border border-[#f9f7f2]/20">
+          <span class="font-mono text-xs text-[#0a0a0a] font-bold">LIGHT #f9f7f2</span>
+        </div>
+        <div class="bg-[#0a0a0a] aspect-[2/1] flex items-end p-6 border border-[#f9f7f2]/20">
+          <span class="font-mono text-xs text-[#f9f7f2] font-bold">DARK #0a0a0a</span>
+        </div>
+      </div>
+
+      <!-- Brand in Application -->
+      <div class="space-y-12">
+        <h3 class="font-monument text-3xl text-[#f9f7f2] mb-12">Brand in Application</h3>
+        
+        <!-- Grid container for mockups -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Mockup 1 - Charity Focus -->
+          <div class="bg-[#f9f7f2] aspect-[4/3] w-full relative overflow-hidden group">
+            <!-- Background Image -->
+            <img 
+              src="/portfolio/bertu/brand1.jpg" 
+              alt="Bertu Media charity brand application" 
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              draggable="false"
+              oncontextmenu="return false;"
+            />
+            
+            <!-- Dark overlay for text legibility -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent"></div>
+            
+            <!-- Orange accent overlay (subtle) -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#FF5F1F]/20 to-transparent mix-blend-overlay"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute bottom-0 left-0 right-0 p-8 z-10">
+              <span class="text-[#FF5F1F] font-pangram-bold text-sm mb-2 block">Charity</span>
+              <h4 class="text-[#f9f7f2] font-monument text-2xl mb-2">Community First</h4>
+              <p class="text-[#f9f7f2]/80 text-sm">Warm, approachable visuals for donation campaigns</p>
+            </div>
+          </div>
+
+          <!-- Mockup 2 - Entertainment Focus -->
+          <div class="bg-[#0a0a0a] aspect-[4/3] w-full relative overflow-hidden group border border-[#f9f7f2]/10">
+            <!-- Background Image -->
+            <img 
+              src="/portfolio/bertu/brand2.jpg" 
+              alt="Bertu Media entertainment brand application" 
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              draggable="false"
+              oncontextmenu="return false;"
+            />
+            
+            <!-- Dark overlay for text legibility -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent"></div>
+            
+            <!-- Orange accent overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#FF5F1F]/10 to-transparent mix-blend-overlay"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute bottom-0 left-0 right-0 p-8 z-10">
+              <span class="text-[#FF5F1F] font-pangram-bold text-sm mb-2 block">Entertainment</span>
+              <h4 class="text-[#f9f7f2] font-monument text-2xl mb-2">Bold & Energetic</h4>
+              <p class="text-[#f9f7f2]/80 text-sm">Dynamic layouts that capture attention</p>
+            </div>
+          </div>
+
+          <!-- Mockup 3 - News Focus (spans full width) -->
+          <div class="md:col-span-2">
+            <div class="bg-[#f9f7f2] aspect-[4/3] w-full relative overflow-hidden group">
+              <!-- Background Image -->
+              <img 
+                src="/portfolio/bertu/brand3.jpg" 
+                alt="Bertu Media news brand application" 
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                draggable="false"
+                oncontextmenu="return false;"
+              />
+              
+              <!-- Dark overlay for text legibility (lighter for news to maintain credibility feel) -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent"></div>
+              
+              <!-- Subtle orange accent -->
+              <div class="absolute inset-0 bg-gradient-to-r from-[#FF5F1F]/5 to-transparent"></div>
+              
+              <!-- Text Content -->
+              <div class="absolute bottom-0 left-0 right-0 p-8 z-10">
+                <span class="text-[#FF5F1F] font-pangram-bold text-sm mb-2 block">News</span>
+                <h4 class="text-[#f9f7f2] font-monument text-2xl mb-2">Clean & Authoritative</h4>
+                <p class="text-[#f9f7f2]/80 text-sm">Typography-forward layouts for credibility</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Website Design Section -->
+  <section class="bg-[#f9f7f2] py-40 px-6 md:px-12">
+    <div class="container mx-auto">
+      <div class="text-center mb-24">
+        <span class="block text-[#FF5F1F] font-pangram-bold text-xs tracking-[0.3em] mb-4">Digital Presence</span>
+        <h2 class="font-monument text-5xl md:text-7xl text-[#0a0a0a] mb-8">
+          The <span class="italic font-serif text-[#FF5F1F]">Website</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-[#0a0a0a]/60 font-pangram text-lg">
+          A modern, sexy digital home that balances charity, entertainment, and news
+        </p>
+      </div>
+
+      <!-- Website Mockups Grid -->
+<div class="space-y-12 mb-16">
+  <!-- Landing Page -->
+  <div class="w-full">
+    <div class="bg-[#f9f7f2] w-full aspect-[16/9] relative overflow-hidden image-protection border border-[#FF5F1F]/20">
+      <img 
+        src="/portfolio/bertu/website_mockup.jpg" 
+        alt="Bertu Media homepage - Modern landing page with hero section featuring orange accent" 
+        class="w-full h-full object-contain"
+        loading="lazy"
+        draggable="false"
+        oncontextmenu="return false;"
+      />
+    </div>
+    <p class="mt-4 text-xs font-mono text-[#0a0a0a]/60">Homepage — Dynamic hero section showcasing all three pillars</p>
+  </div>
+  
+</div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-20">
+        <a href="https://bertumedia.com.et" target="_blank" rel="noopener noreferrer" class="group relative px-12 py-6 bg-[#FF5F1F] overflow-hidden rounded-none min-w-[240px] text-center">
+          <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#f9f7f2] group-hover:text-[#0a0a0a] transition-colors duration-500">VIEW LIVE SITE →</span>
+          <div class="absolute inset-0 bg-[#f9f7f2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
+        </a>
+        
+        <a href="/portfolio/bertu/Visual_brand_book.pdf" download class="group relative px-12 py-6 border-2 border-[#FF5F1F] overflow-hidden rounded-none min-w-[240px] text-center">
+          <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#0a0a0a] group-hover:text-[#f9f7f2] transition-colors duration-300">DOWNLOAD BRAND BOOK ↓</span>
+          <div class="absolute inset-0 bg-[#FF5F1F] transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-500 ease-out"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<section class="bg-[#f9f7f2] py-32 px-6 md:px-12 border-t border-[#0a0a0a]/10">
+  <div class="container mx-auto max-w-6xl">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="block text-[#FF5F1F] font-pangram-bold text-xs tracking-[0.3em] mb-4">TESTIMONIALS</span>
+      <h2 class="font-monument text-3xl md:text-4xl text-[#0a0a0a]">Trusted by <span class="italic font-serif text-[#FF5F1F]">Community Leaders</span></h2>
+    </div>
+
+    <!-- Two Column Testimonials with Cards -->
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Testimonial 1 - Dereje -->
+      <div itemscope itemtype="https://schema.org/Review" class="bg-white p-8 md:p-10 shadow-sm border border-[#0a0a0a]/5 relative">
+        <!-- Orange accent line -->
+        <div class="absolute top-0 left-0 w-24 h-1 bg-[#FF5F1F]"></div>
+        
+        <blockquote class="font-pangram text-xl md:text-2xl leading-relaxed text-[#0a0a0a] mb-8">
+          <span class="text-[#FF5F1F] font-serif text-4xl block mb-2">"</span>
+          <span itemprop="reviewBody">
+            Dereje said he absolutely loved it—calling it "great work" and praising the craftsmanship. The new identity finally gives Bertu Media the visual presence it deserves.
+          </span>
+          <meta itemprop="itemReviewed" content="Bertu Media Brand Identity" />
+          <meta itemprop="reviewRating" content="5" />
+        </blockquote>
+        
+        <div class="flex items-center gap-4">
+          <!-- Profile Image -->
+          <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#FF5F1F] flex-shrink-0">
+            <img 
+              src="/portfolio/bertu/derje.jpg" 
+              alt="Dereje Yenewelegn" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+              draggable="false"
+              oncontextmenu="return false;"
+              onerror="this.style.display='none'; this.parentElement.classList.add('bg-[#FF5F1F]/20', 'flex', 'items-center', 'justify-center'); this.parentElement.innerHTML = '<span class=\"text-[#FF5F1F] font-pangram-bold text-lg\">D</span>';"
+            />
+          </div>
+          <div>
+            <cite class="not-italic font-pangram-bold text-base tracking-widest text-[#0a0a0a]" itemprop="author">Dereje Yenewelegn</cite>
+            <p class="text-xs text-[#0a0a0a]/60">Co-founder</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 - Eliyas -->
+      <div itemscope itemtype="https://schema.org/Review" class="bg-white p-8 md:p-10 shadow-sm border border-[#0a0a0a]/5 relative">
+        <!-- Orange accent line -->
+        <div class="absolute top-0 left-0 w-24 h-1 bg-[#FF5F1F]"></div>
+        
+        <blockquote class="font-pangram text-xl md:text-2xl leading-relaxed text-[#0a0a0a] mb-8">
+          <span class="text-[#FF5F1F] font-serif text-4xl block mb-2">"</span>
+          <span itemprop="reviewBody">
+            <span class="font-bold text-[#FF5F1F]">"WOW! ያበደ ነው ካልሻ!"</span> Eliyas was blown away by the transformation. The new brand is bold, modern, and exactly what we needed to increase our reach.
+          </span>
+          <meta itemprop="itemReviewed" content="Bertu Media Brand Identity" />
+          <meta itemprop="reviewRating" content="5" />
+        </blockquote>
+        
+        <div class="flex items-center gap-4">
+          <!-- Profile Image -->
+          <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#FF5F1F] flex-shrink-0">
+            <img 
+              src="/portfolio/bertu/ela.jpg" 
+              alt="Eliyas Kefle" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+              draggable="false"
+              oncontextmenu="return false;"
+              onerror="this.style.display='none'; this.parentElement.classList.add('bg-[#FF5F1F]/20', 'flex', 'items-center', 'justify-center'); this.parentElement.innerHTML = '<span class=\"text-[#FF5F1F] font-pangram-bold text-lg\">E</span>';"
+            />
+          </div>
+          <div>
+            <cite class="not-italic font-pangram-bold text-base tracking-widest text-[#0a0a0a]" itemprop="author">Eliyas Kefle</cite>
+            <p class="text-xs text-[#0a0a0a]/60">Co-founder</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Responsive note for mobile -->
+    <p class="text-center text-xs text-[#0a0a0a]/40 mt-12 md:hidden">
+      Swipe to read more testimonials →
+    </p>
+
+  </div>
+</section>
+
+  <section class="bg-[#0a0a0a] py-40 px-6 md:px-12 text-center">
+    <div class="container mx-auto">
+      <h2 class="font-monument text-4xl md:text-6xl text-[#f9f7f2] mb-12">
+        Ready to build your <br /> <span class="italic font-serif text-[#FF5F1F]">brand?</span>
+      </h2>
+      
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <a href="/" class="group relative px-12 py-6 bg-[#f9f7f2] overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#0a0a0a] group-hover:text-[#f9f7f2] transition-colors duration-500">Back to Home</span>
+           <div class="absolute inset-0 bg-[#FF5F1F] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out"></div>
+        </a>
+        <a href="https://t.me/alpha_valley" target="_blank" rel="noopener noreferrer" class="group relative px-12 py-6 border border-[#f9f7f2]/20 overflow-hidden rounded-none">
+           <span class="relative z-10 font-pangram-bold tracking-widest text-xs text-[#f9f7f2] group-hover:text-[#0a0a0a] transition-colors duration-300">Start Your Project</span>
+           <div class="absolute inset-0 bg-[#f9f7f2] transform scale-y-0 group-hover:scale-y-100 transition-transform origin-bottom duration-500 ease-out"></div>
+        </a>
+      </div>
+
+      <div class="mt-32 pt-8 border-t border-[#f9f7f2]/10 flex justify-between text-[#f9f7f2]/30 text-[10px] tracking-widest font-pangram">
+        <span>© {new Date().getFullYear()} Helm Creative Agency</span>
+        <span>Ethiopia • Media & Community</span>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  /* Base styles for premium feel */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Font definitions with fallbacks */
+
+  
+  /* Image Protection */
+  .image-protection {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+  
+  /* Prevent selection of text content */
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* But allow selection on specific elements that should be selectable */
+  p, h1, h2, h3, h4, h5, h6, a, span, blockquote, cite {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Reveal animation helper */
+  .reveal-text {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Button hover effects */
+  .group:hover .scale-x-100 {
+    transform: scaleX(1);
+  }
+  
+  .group:hover .scale-y-100 {
+    transform: scaleY(1);
+  }
+</style>

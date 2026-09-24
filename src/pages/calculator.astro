@@ -7,102 +7,114 @@ const description = "Get an instant ballpark estimate for your next digital proj
 ---
 
 <Layout title={title} description={description}>
-  <section class="relative pt-32 pb-16 px-6 md:px-12 bg-[#0B0E14] flex flex-col items-center text-center z-20">
+<section class="relative pt-32 pb-16 px-6 md:px-12 flex flex-col items-center text-center z-20">
     <div class="max-w-3xl mx-auto">
-      <h1 class="font-monument text-3xl md:text-4xl text-white mb-4 tracking-wide ">
-        Project Cost <span class="text-[#f5bd02]">Estimator</span>
+      <h1 class="font-display font-bold text-4xl md:text-5xl text-brand-white mb-4 tracking-wide">
+        Project Cost <span class="text-brand-gold">Estimator</span>
       </h1>
-      <p class="font-pangram  text-lg">
+      <p class="font-sans text-brand-white/80 text-xl md:text-2xl leading-relaxed">
         Professional estimates for websites, web apps, and mobile platforms.
       </p>
     </div>
-  </section>
+</section>
 
-  <section class="pt-12 pb-24 px-4 md:px-8 bg-gray-50 text-[#111]" id="calculator-section">
+<section class="pt-12 pb-24 px-4 md:px-8" id="calculator-section">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <div class="lg:col-span-2 space-y-8 bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+        <div class="lg:col-span-2 space-y-8 bg-brand-navy-light/30 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-brand-white/10">
           
           <div>
-            <label for="project-type" class="block text-sm font-bold  tracking-wider mb-3 text-black">1. Select Project Type</label>
+            <label for="project-type" class="block text-base font-bold tracking-wider mb-3 text-brand-white">1. Select Project Type</label>
             <div class="relative">
               <input 
                 type="text" 
                 id="project-search" 
                 placeholder="Search project types..."
-                class="w-full bg-white border-2 border-gray-200 p-4 rounded-xl text-lg font-medium focus:border-[#f5bd02] outline-none transition-colors text-black mb-2"
+                class="w-full bg-brand-navy border border-brand-white/20 p-4 rounded-xl text-base font-medium focus:border-brand-gold outline-none transition-colors text-brand-white placeholder:text-brand-white/40"
               >
-              <select id="project-type" class="w-full bg-white border-2 border-gray-200 p-4 rounded-xl text-lg font-medium focus:border-[#f5bd02] outline-none transition-colors cursor-pointer text-black">
+              <select id="project-type" class="w-full bg-brand-navy border border-brand-white/20 p-4 rounded-xl text-base font-medium focus:border-brand-gold outline-none transition-colors cursor-pointer text-brand-white mt-2">
                 <option value="" disabled selected>Choose a category...</option>
               </select>
             </div>
             
-            <div id="included-box" class="mt-4 p-4 bg-[#FFF9C4] border-2 border-[#f5bd02] rounded-xl hidden">
-              <span class="block font-bold text-xs  mb-1 text-black">Package Details:</span>
-              <p id="included-list" class="text-sm leading-relaxed text-black font-medium"></p>
+            <div id="included-box" class="mt-4 p-4 bg-brand-gold/10 border-2 border-brand-gold rounded-xl hidden">
+              <span class="block font-bold text-xs mb-1 text-brand-gold">Package Details:</span>
+              <p id="included-list" class="text-sm leading-relaxed text-brand-white font-medium"></p>
             </div>
           </div>
 
           <div>
-            <div class="flex justify-between items-end mb-3">
-              <label class="block text-sm font-bold  tracking-wider text-black">2. Additional Pages</label>
-              <span id="page-count-display" class="bg-black text-white px-3 py-1 rounded-full text-xs font-bold">Standard Only</span>
+            <div class="flex justify-between items-center mb-4">
+              <label class="block text-base font-bold tracking-wider text-brand-white">2. Additional Pages</label>
+              <span id="page-count-display" class="bg-brand-gold text-brand-navy px-3 py-1 rounded-full text-xs font-bold">0 Extra Pages</span>
             </div>
-            <div class="p-6 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200">
-              <input type="range" id="page-slider" min="0" max="30" value="0" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-[#f5bd02]">
-              <div class="flex justify-between mt-2 text-[10px] font-bold  ">
-                <span>Standard Package</span>
-                <span>30+ Pages</span>
+            <div class="p-6 bg-brand-navy/50 rounded-xl border border-brand-white/10">
+              <div class="flex items-center justify-between gap-4">
+                <button id="page-minus" class="w-12 h-12 rounded-full bg-brand-navy border border-brand-white/20 text-brand-white text-2xl font-bold hover:bg-brand-gold hover:text-brand-navy hover:border-brand-gold transition-all duration-300 flex items-center justify-center">
+                  −
+                </button>
+                <div class="flex-1 text-center">
+                  <span id="page-value" class="text-3xl font-bold text-brand-gold">0</span>
+                  <span class="text-brand-white/60 ml-2">extra pages</span>
+                </div>
+                <button id="page-plus" class="w-12 h-12 rounded-full bg-brand-navy border border-brand-white/20 text-brand-white text-2xl font-bold hover:bg-brand-gold hover:text-brand-navy hover:border-brand-gold transition-all duration-300 flex items-center justify-center">
+                  +
+                </button>
+              </div>
+              <div class="mt-4 text-center text-xs text-brand-white/40">
+                Each extra page: +2,000 ETB / $100
               </div>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-bold  tracking-wider mb-4 text-black">3. Power-Ups (Add-ons)</label>
+            <label class="block text-base font-bold tracking-wider mb-4 text-brand-white">3. Power-Ups (Add-ons)</label>
             <div id="features-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               </div>
           </div>
         </div>
 
         <aside class="space-y-4">
-          <div class="bg-white border-2 border-black p-8 rounded-2xl shadow-xl sticky top-24">
-            <div class="flex justify-between items-center border-b-2 border-black pb-4 mb-6">
-              <h3 class="font-monument text-xl  italic text-black">Invoice Estimate</h3>
-              <span id="location-badge" class="text-[10px] bg-gray-100 px-2 py-1 rounded border border-gray-300 font-bold  text-black">...</span>
+          <div class="bg-brand-navy-light/30 backdrop-blur-sm border border-brand-white/10 p-8 rounded-2xl shadow-xl sticky top-24">
+            <div class="flex justify-between items-center border-b border-brand-white/20 pb-4 mb-6">
+              <h3 class="font-display font-bold text-2xl text-brand-white">Invoice Estimate</h3>
+              <span id="location-badge" class="text-xs bg-brand-navy px-3 py-1 rounded border border-brand-white/20 font-bold text-brand-white/60">...</span>
             </div>
 
             <div class="space-y-4 mb-8">
-              <div class="flex justify-between text-sm">
-                <span class=" font-medium">Base Development</span>
-                <span id="summary-base" class="font-bold text-black">-</span>
+              <div class="flex justify-between text-base">
+                <span class="font-medium text-brand-white/80">Base Development</span>
+                <span id="summary-base" class="font-bold text-brand-gold text-lg">-</span>
               </div>
-              <div class="flex justify-between text-sm">
-                <span class=" font-medium">Extra Page Design</span>
-                <span id="summary-pages" class="font-bold text-black">-</span>
+              <div class="flex justify-between text-base">
+                <span class="font-medium text-brand-white/80">Extra Page Design</span>
+                <span id="summary-pages" class="font-bold text-brand-gold text-lg">-</span>
               </div>
-              <div class="flex justify-between text-sm">
-                <span class=" font-medium">Add-on Features</span>
-                <span id="summary-addons" class="font-bold text-black">-</span>
+              <div class="flex justify-between text-base">
+                <span class="font-medium text-brand-white/80">Add-on Features</span>
+                <span id="summary-addons" class="font-bold text-brand-gold text-lg">-</span>
               </div>
               
-              <div class="pt-4 border-t-2 border-black flex justify-between items-center">
-                <span class="font-bold text-lg  text-black">Estimated Total</span>
+              <div class="pt-4 border-t border-brand-white/20 flex justify-between items-center">
+                <span class="font-bold text-xl text-brand-white">Estimated Total</span>
                 <div class="text-right">
-                    <span id="total-price" class="block font-monument text-3xl text-[#f5bd02]">0</span>
-                    <span id="timeline-display" class="text-[10px] font-bold  ">Timeline: 2-3 Weeks</span>
+                    <span id="total-price" class="block font-display font-bold text-5xl text-brand-gold">0</span>
+                    <span id="timeline-display" class="text-xs font-bold text-brand-white/60">Timeline: 2-3 Weeks</span>
                 </div>
               </div>
             </div>
 
             <div class="space-y-3">
-                <button id="whatsapp-btn" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md  text-sm tracking-wider">
+                <button id="whatsapp-btn" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md text-sm tracking-wider">
+                    <i class="fab fa-whatsapp text-lg"></i>
                     <span>Send to WhatsApp</span>
                 </button>
-                <button id="telegram-btn" class="w-full bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md  text-sm tracking-wider">
+                <button id="telegram-btn" class="w-full bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-md text-sm tracking-wider">
+                    <i class="fab fa-telegram text-lg"></i>
                     <span>Send to Telegram</span>
                 </button>
-                <p class="text-center text-[10px]  font-bold tracking-tight">
+                <p class="text-center text-xs font-bold tracking-tight text-brand-white/50">
                     This is a ballpark estimate. Final quote provided after discovery.
                 </p>
             </div>
@@ -111,7 +123,7 @@ const description = "Get an instant ballpark estimate for your next digital proj
 
       </div>
     </div>
-  </section>
+</section>
 
   <script is:inline>
     const PRICING = {
@@ -190,6 +202,8 @@ const description = "Get an instant ballpark estimate for your next digital proj
         $('included-box').classList.remove('hidden');
         const longProjects = ['mobile_app', 'saas_mvp', 'elearning', 'job_marketplace', 'dating', 'forum', 'membership', 'enterprise'];
         $('timeline-display').textContent = longProjects.includes(state.selectedType) ? 'Timeline: 6-10 Weeks' : 'Timeline: 2-3 Weeks';
+      } else {
+        $('included-box').classList.add('hidden');
       }
       pages = state.extraPages * (state.region === 'ethiopia' ? PRICING.page_cost.etb : PRICING.page_cost.usd);
       state.selectedFeatures.forEach(id => {
@@ -208,26 +222,40 @@ const description = "Get an instant ballpark estimate for your next digital proj
       grid.innerHTML = '';
       PRICING.features.forEach(feat => {
         const card = document.createElement('div');
-        card.className = 'feature-card cursor-pointer border-2 border-gray-200 p-4 rounded-xl transition-all hover:border-[#f5bd02] bg-white group';
         const priceVal = state.region === 'ethiopia' ? feat.price_etb : feat.price_usd;
+        card.className = `feature-card cursor-pointer border-2 border-brand-white/20 p-5 rounded-xl transition-all hover:border-brand-gold bg-brand-navy/50`;
+        if (state.selectedFeatures.has(feat.id)) {
+          card.style.borderColor = "#f5bd02";
+          card.style.backgroundColor = "rgba(245, 189, 2, 0.1)";
+        }
         card.innerHTML = `
           <div class="flex justify-between items-center pointer-events-none">
-            <div>
-              <h4 class="font-bold text-sm  text-black">${feat.name}</h4>
-              <span class="text-xs  font-bold">+${formatCurrency(priceVal)}</span>
+            <div class="flex-1">
+              <h4 class="font-bold text-lg text-brand-white">${feat.name}</h4>
+              <span class="text-sm font-bold text-brand-gold mt-1 block">+${formatCurrency(priceVal)}</span>
             </div>
-            <div class="w-5 h-5 border-2 border-gray-300 rounded-full bg-white group-hover:border-[#f5bd02]"></div>
+            <div class="w-6 h-6 rounded-full border-2 ${state.selectedFeatures.has(feat.id) ? 'bg-brand-gold border-brand-gold' : 'border-brand-white/40'} flex items-center justify-center">
+              ${state.selectedFeatures.has(feat.id) ? '<i class="fas fa-check text-brand-navy text-xs"></i>' : ''}
+            </div>
           </div>
         `;
         card.addEventListener('click', () => {
           if (state.selectedFeatures.has(feat.id)) {
             state.selectedFeatures.delete(feat.id);
-            card.style.borderColor = "#e5e7eb";
-            card.style.backgroundColor = "#fff";
+            card.style.borderColor = "rgba(255, 255, 255, 0.2)";
+            card.style.backgroundColor = "rgba(15, 23, 42, 0.5)";
+            const checkDiv = card.querySelector('.w-6.h-6');
+            checkDiv.classList.remove('bg-brand-gold', 'border-brand-gold');
+            checkDiv.classList.add('border-brand-white/40');
+            checkDiv.innerHTML = '';
           } else {
             state.selectedFeatures.add(feat.id);
             card.style.borderColor = "#f5bd02";
-            card.style.backgroundColor = "#FFF9C4";
+            card.style.backgroundColor = "rgba(245, 189, 2, 0.1)";
+            const checkDiv = card.querySelector('.w-6.h-6');
+            checkDiv.classList.add('bg-brand-gold', 'border-brand-gold');
+            checkDiv.classList.remove('border-brand-white/40');
+            checkDiv.innerHTML = '<i class="fas fa-check text-brand-navy text-xs"></i>';
           }
           updateCalculation();
         });
@@ -239,12 +267,10 @@ const description = "Get an instant ballpark estimate for your next digital proj
       const select = $('project-type');
       const options = Array.from(select.options);
       
-      // Reset all options first
-      options.forEach(option => {
-        option.style.display = '';
-      });
-      
       if (searchTerm.trim() === '') {
+        options.forEach(option => {
+          option.style.display = '';
+        });
         return;
       }
       
@@ -254,22 +280,17 @@ const description = "Get an instant ballpark estimate for your next digital proj
           const text = option.textContent.toLowerCase();
           if (!text.includes(searchLower)) {
             option.style.display = 'none';
+          } else {
+            option.style.display = '';
           }
         }
       });
-      
-      // If no options match, show the placeholder
-      const visibleOptions = options.filter(opt => opt.style.display !== 'none');
-      if (visibleOptions.length === 1 && visibleOptions[0].value === '') {
-        visibleOptions[0].textContent = 'No matching project types found';
-      }
     }
 
     function populateProjectDropdown() {
       const select = $('project-type');
       select.innerHTML = '<option value="" disabled selected>Choose a category...</option>';
       
-      // Sort types alphabetically by name
       const sortedEntries = Object.entries(PRICING.types).sort((a, b) => 
         a[1].name.localeCompare(b[1].name)
       );
@@ -294,27 +315,35 @@ const description = "Get an instant ballpark estimate for your next digital proj
         filterOptions(e.target.value);
       });
 
-      $('project-search').addEventListener('focus', () => {
-        $('project-type').size = 6; // Show multiple options when searching
-      });
-
-      $('project-search').addEventListener('blur', () => {
-        setTimeout(() => {
-          $('project-type').size = 1;
-        }, 200);
-      });
-
-      // Clear search when dropdown changes
       $('project-type').addEventListener('change', (e) => {
         state.selectedType = e.target.value;
         $('project-search').value = '';
+        filterOptions('');
         updateCalculation();
       });
 
-      $('page-slider').addEventListener('input', (e) => {
-        state.extraPages = parseInt(e.target.value);
-        $('page-count-display').textContent = state.extraPages === 0 ? 'Standard Only' : `+${state.extraPages} Extra Pages`;
-        updateCalculation();
+      // Plus/Minus buttons for pages
+      const pageMinus = $('page-minus');
+      const pagePlus = $('page-plus');
+      const pageValue = $('page-value');
+      const pageCountDisplay = $('page-count-display');
+      
+      pageMinus.addEventListener('click', () => {
+        if (state.extraPages > 0) {
+          state.extraPages--;
+          pageValue.textContent = state.extraPages;
+          pageCountDisplay.textContent = `${state.extraPages} Extra Page${state.extraPages !== 1 ? 's' : ''}`;
+          updateCalculation();
+        }
+      });
+      
+      pagePlus.addEventListener('click', () => {
+        if (state.extraPages < 100) {
+          state.extraPages++;
+          pageValue.textContent = state.extraPages;
+          pageCountDisplay.textContent = `${state.extraPages} Extra Page${state.extraPages !== 1 ? 's' : ''}`;
+          updateCalculation();
+        }
       });
 
       // Social Links
@@ -323,8 +352,10 @@ const description = "Get an instant ballpark estimate for your next digital proj
         return encodeURIComponent(`Hi Helm Creative Agency, I've generated an estimate for a ${type}. Total: ${formatCurrency(state.total)}. I'd like to talk details!`);
       };
       
-      $('whatsapp-btn').onclick = () => window.open(`https://wa.me/+251977240817?text=${buildMsg()}`, '_blank');
+      $('whatsapp-btn').onclick = () => window.open(`https://wa.me/+251959516667?text=${buildMsg()}`, '_blank');
       $('telegram-btn').onclick = () => window.open(`https://t.me/alpha_valley?text=${buildMsg()}`, '_blank');
+      
+      updateCalculation();
     }
 
     init();
@@ -332,15 +363,6 @@ const description = "Get an instant ballpark estimate for your next digital proj
 </Layout>
 
 <style is:global>
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    background: #f5bd02;
-    border: 4px solid #000;
-    cursor: pointer;
-  }
   #project-type option {
       color: black;
       background: white;
