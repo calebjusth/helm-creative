@@ -1,126 +1,109 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ServicesGrid from '../components/ServicesGrid.astro'; 
-import Process from '../components/Process.astro';
+
+const primaryServices = [
+  {
+    number: '01',
+    title: 'Branding',
+    summary: 'Build a clear identity people can remember.',
+    details: 'Research, strategy, positioning, naming, logo design, visual identity, brand guidelines, company profiles, and the wider graphic design system that brings your brand to life.',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=500&q=80'
+  },
+  {
+    number: '02',
+    title: 'Digital Marketing',
+    summary: 'Turn attention into steady growth.',
+    details: 'Campaign strategy, ad running, social media management, content planning, video production, editing, copywriting, and reporting that helps your business reach the right people.',
+    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=500&q=80'
+  },
+  {
+    number: '03',
+    title: 'UI/UX & Web Development',
+    summary: 'Make digital experiences useful and easy to use.',
+    details: 'User research, information architecture, user journeys, interface design, responsive websites, web applications, development, testing, maintenance, and performance improvements.',
+    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=500&q=80'
+  },
+  {
+    number: '04',
+    title: 'Events',
+    summary: 'Shape the moments people remember.',
+    details: 'Event visuals, campaign direction, invitations, stage and environmental graphics, production support, event management, coordination, and full event organization.',
+    image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=500&q=80'
+  }
+];
+
+const supportingServices = [
+  'Film Production',
+  'Sound Design & Engineering',
+  'Photography',
+  'Campaign Direction',
+  'Creative Strategy',
+  'Content Production',
+  'Presentation & Pitch Deck Design',
+  'Illustration & Art Direction'
+];
 ---
 
 <Layout title="Our Services | Helm Creative" description="High-end branding, web design, app development, and digital marketing services by Helm Creative.">
-  
-  <section class="relative min-h-screen flex items-center overflow-hidden px-8 md:px-20 lg:px-32">
-    
+  <section class="relative min-h-screen flex items-end overflow-hidden px-5 md:px-8 lg:px-10 pt-32 pb-16 md:pb-24">
     <div class="absolute inset-0 z-0">
-        <div 
-          class="absolute inset-0 bg-cover bg-center grayscale opacity-30 scale-105"
-          style="background-image: url('/mockup.jpg');"
-        ></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/70 to-brand-navy/40"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_brand-navy_90%)]"></div>
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/mockup.jpg');"></div>
+      <div class="absolute inset-0 bg-[#FAF9F6]/65"></div>
     </div>
 
-    <div id="glow-container" class="pointer-events-none absolute inset-0 z-10">
-      <div id="mouse-glow" class="absolute w-[500px] h-[500px] rounded-full bg-brand-gold/10 blur-[120px] transition-opacity duration-500 opacity-0"></div>
-    </div>
-
-    <div class="container mx-auto relative z-20">
-      <div class="max-w-3xl">
-        <div class="flex flex-col space-y-10">
-          
-          <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-brand-white leading-[1.1] tracking-tighter uppercase">
-            We build <br /> <span class="text-brand-gold">brands</span>.
-          </h1>
-          
-          <p class="font-sans text-lg md:text-xl text-brand-white/70 max-w-lg leading-relaxed italic">
-            From websites to apps and ads, we help your business grow and look great doing it. Simple ideas, big results.
-          </p>
-
-          <div class="pt-4">
-            <a 
-              href="/calculator" 
-              class="group inline-flex items-center gap-2 px-8 py-4 bg-brand-gold text-brand-navy font-sans font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-brand-white hover:gap-4 rounded-full"
-            >
-              <span>Start a Project</span>
-              <span class="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="absolute right-12 bottom-12 hidden lg:block overflow-hidden">
-        <div class="h-[1px] w-24 bg-brand-gold mb-4 transform translate-x-full animate-slideIn"></div>
-        <p class="font-sans text-brand-white/20 text-[10px] uppercase tracking-[0.6em]">
-            Service / Page
-        </p>
+    <div class="relative z-10 max-w-7xl mx-auto w-full">
+      <h1 class="font-display font-bold text-5xl md:text-7xl leading-[0.92] text-[#1a1a1a] max-w-5xl">
+        A full-service creative partner.
+      </h1>
+      <p class="mt-6 font-sans text-xl md:text-2xl leading-tight text-[#1a1a1a] max-w-xl">
+        Strategy, design, and production for ideas that need to move.
+      </p>
     </div>
   </section>
 
-  <ServicesGrid />
+  <section class="bg-[#FAF9F6] text-[#1a1a1a] px-5 md:px-8 lg:px-10 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-xl mb-12 md:mb-16">
+        <h2 class="font-display font-bold text-4xl md:text-6xl leading-[0.95] text-[#1a1a1a]">
+          One team for the whole creative picture.
+        </h2>
+      </div>
 
-  <Process />
+      <div class="border-t border-[#1a1a1a]/20">
+        {primaryServices.map((service) => (
+          <details class="group relative border-b border-[#1a1a1a]/20">
+            <summary class="list-none cursor-pointer grid grid-cols-[2.5rem_1fr_auto] md:grid-cols-[4rem_1fr_auto] gap-4 md:gap-8 items-start py-7 md:py-10">
+              <span class="font-sans text-xs md:text-sm text-[#1a1a1a]/60">{service.number}</span>
+              <span>
+                <span class="block font-display text-3xl md:text-5xl leading-none text-[#1a1a1a]">{service.title}</span>
+                <span class="block mt-3 font-sans text-base md:text-lg leading-tight text-[#1a1a1a]">{service.summary}</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-base md:text-lg text-[#1a1a1a] mt-1 transition-transform duration-300 group-open:rotate-180"></i>
+              <img src={service.image} alt="" aria-hidden="true" class="pointer-events-none absolute right-16 top-1/2 hidden h-24 w-32 -translate-y-1/2 object-cover group-hover:block md:h-28 md:w-40" />
+            </summary>
+            <div class="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+              <div class="overflow-hidden pl-[2.5rem] md:pl-[4rem] pb-8 md:pb-10">
+                <p class="font-sans text-lg md:text-xl leading-relaxed max-w-3xl text-[#1a1a1a]">{service.details}</p>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#FAF9F6] text-[#1a1a1a] px-5 md:px-8 lg:px-10 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-[0.8fr_1.2fr] items-start">
+      <div>
+        <h2 class="font-display font-bold text-4xl md:text-6xl leading-[0.95] text-[#1a1a1a]">Built around your brief.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 border-t border-[#1a1a1a]/20">
+        {supportingServices.map((service) => (
+          <p class="border-b border-[#1a1a1a]/20 py-5 pr-5 font-display text-2xl md:text-3xl leading-none text-[#1a1a1a]">{service}</p>
+        ))}
+      </div>
+    </div>
+  </section>
 
 </Layout>
-
-<script>
-  // Fix mouse glow to prevent performance issues and ensure it only runs on client
-  if (typeof window !== 'undefined') {
-    const glow = document.getElementById('mouse-glow');
-    let timeoutId;
-    
-    const handleMouseMove = (e) => {
-      if (glow) {
-        if (timeoutId) clearTimeout(timeoutId);
-        glow.style.opacity = '1';
-        glow.style.left = `${e.clientX - 250}px`;
-        glow.style.top = `${e.clientY - 250}px`;
-        
-        // Fade out after 1.5 seconds of no mouse movement
-        timeoutId = setTimeout(() => {
-          if (glow) glow.style.opacity = '0';
-        }, 1500);
-      }
-    };
-    
-    // Throttle mousemove for better performance
-    let ticking = false;
-    const throttledMouseMove = (e) => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleMouseMove(e);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    
-    window.addEventListener('mousemove', throttledMouseMove);
-    
-    // Cleanup on page transitions
-    document.addEventListener('astro:before-swap', () => {
-      window.removeEventListener('mousemove', throttledMouseMove);
-    });
-  }
-</script>
-
-<style is:global>
-  section {
-    border-bottom: 1px solid rgba(248, 250, 252, 0.05);
-  }
-
-  h1, p, a {
-    animation: fadeInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes slideIn {
-    to { transform: translateX(0); }
-  }
-  
-  .animate-slideIn {
-    animation: slideIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  }
-</style>
