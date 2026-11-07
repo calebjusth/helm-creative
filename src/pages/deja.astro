@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const portfolioPath = '/portfolio/deja/';
+const images = [
+  { src: 'Artboard2.webp', alt: 'Memories that last, the Déjà fragrance campaign' },
+  { src: 'Artboard3.webp', alt: 'A nostalgic childhood moment with a dandelion' },
+  { src: 'Artboard6.webp', alt: 'A hand holding the Déjà perfume against the sky' },
+  { src: 'Artboard7.webp', alt: 'A quiet moment captured through fragrance' },
+  { src: 'Artboard4.webp', alt: 'Déjà perfume bottle and keepsake presentation box' },
+  { src: 'Artboard5.webp', alt: 'Déjà fragrance packaging collection' },
+  { src: 'Artboard8.webp', alt: 'Déjà identity color palette: heritage red, vintage olive, cream and brown' },
+  { src: 'Artboard9.webp', alt: 'Déjà editorial serif typography specimen' },
+];
+---
+
+<Layout
+  title="Déjà Fragrance Case Study"
+  description="A fragrance identity inspired by the memories and moments that never fade. Brand strategy, logo design and packaging by Helm Creative."
+  image={`${portfolioPath}Artboard4.webp`}
+>
+  <div class="deja-page bg-[#FAF9F6] text-[#1a1a1a]">
+    <section class="deja-hero flex min-h-[88svh] flex-col items-center justify-center bg-[#8F3B32] px-5 pb-8 pt-24 text-[#F4E9D8] md:min-h-screen md:pt-28">
+      <img
+        src={`${portfolioPath}Artboard1.webp`}
+        alt="Déjà fragrance identity"
+        class="deja-wordmark w-full max-w-[min(76vh,760px)] object-contain"
+        fetchpriority="high"
+      />
+      <div class="mt-5 flex w-full max-w-6xl justify-between text-[10px] uppercase tracking-[0.16em] md:mt-0">
+        <span>Fragrance / Brand Identity</span>
+        <a href="#story" class="underline underline-offset-4">Explore the project</a>
+      </div>
+    </section>
+
+    <section id="story" class="px-5 py-20 md:px-10 md:py-28 lg:px-16">
+      <div class="mx-auto grid max-w-6xl gap-12 border-b border-[#1a1a1a]/15 pb-16 md:grid-cols-2 md:gap-24 md:pb-24">
+        <div>
+          <p class="mb-5 text-[10px] uppercase tracking-[0.18em] text-[#8F3B32]">The feeling that stays</p>
+          <h1 class="max-w-lg  text-5xl font-normal leading-[0.98] md:text-7xl">Some memories never really leave.</h1>
+        </div>
+        <div class="grid gap-8 text-sm leading-relaxed md:grid-cols-[0.7fr_1.3fr] md:gap-10">
+          <dl class="space-y-5 text-xs">
+            <div><dt class="mb-1 font-bold">Client</dt><dd>Déjà</dd></div>
+            <div><dt class="mb-1 font-bold">Industry</dt><dd>Fragrance</dd></div>
+            <div><dt class="mb-1 font-bold">Services</dt><dd>Brand strategy, visual identity, logo and packaging</dd></div>
+          </dl>
+          <div>
+            <h2 class="mb-3 text-xs font-bold">The idea</h2>
+            <p class="text-[#1a1a1a]/75">A familiar scent can bring a whole moment rushing back. Déjà is a perfume brand built around that quiet magic: the people, places and feelings we carry with us long after the moment has passed.</p>
+            <h2 class="mb-3 mt-7 text-xs font-bold">The approach</h2>
+            <p class="text-[#1a1a1a]/75">We shaped an identity that feels like a memory itself: warm, intimate and a little timeless. A refined wordmark, tactile keepsake packaging and nostalgic imagery come together to make each fragrance feel personal and lasting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="mx-auto max-w-400 px-3 md:px-8">
+      <img src={`${portfolioPath}${images[0].src}`} alt={images[0].alt} class="w-full" loading="lazy" />
+      <figcaption class="px-2 pt-3 text-[10px] uppercase tracking-[0.14em] text-[#1a1a1a]/55">01 / A scent can take you back</figcaption>
+    </figure>
+
+    <section class="px-5 py-20 md:px-10 md:py-32 lg:px-16">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
+        <div class="max-w-md">
+          <p class="mb-4 text-[10px] uppercase tracking-[0.18em] text-[#8F3B32]">02 / Brand story</p>
+          <h2 class="mb-6  text-4xl font-normal leading-tight md:text-5xl">A feeling, brought back.</h2>
+          <p class="text-sm leading-relaxed text-[#1a1a1a]/70">The name Déjà nods to the strange comfort of recognition. We built the visual world around the same sensation: sun-warmed scenes, soft grain and moments that feel like they already belong to you.</p>
+        </div>
+        <img src={`${portfolioPath}${images[1].src}`} alt={images[1].alt} class="w-full" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2">
+      {images.slice(2, 4).map((image, index) => (
+        <figure class="relative">
+          <img src={`${portfolioPath}${image.src}`} alt={image.alt} class="aspect-square w-full object-cover" loading="lazy" />
+          <figcaption class="absolute bottom-5 left-5 text-[10px] uppercase tracking-[0.14em] text-white/85">0{index + 3} / A moment in the making</figcaption>
+        </figure>
+      ))}
+    </section>
+
+    <section class="px-5 py-20 md:px-10 md:py-32 lg:px-16">
+      <div class="mx-auto mb-10 flex max-w-6xl items-end justify-between gap-6">
+        <div>
+          <p class="mb-4 text-[10px] uppercase tracking-[0.18em] text-[#8F3B32]">04 / Packaging</p>
+          <h2 class=" text-4xl font-normal md:text-6xl">A keepsake, not just a bottle.</h2>
+        </div>
+        <p class="hidden max-w-xs text-xs leading-relaxed text-[#1a1a1a]/65 md:block">Every detail invites the fragrance to be held onto, revisited and remembered.</p>
+      </div>
+      <div class="mx-auto grid max-w-400 grid-cols-1 gap-3 md:grid-cols-2 md:gap-6">
+        {images.slice(4, 6).map((image) => (
+          <img src={`${portfolioPath}${image.src}`} alt={image.alt} class="w-full" loading="lazy" />
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-[#1a1a1a] px-5 py-20 text-[#FAF9F6] md:px-10 md:py-28 lg:px-16">
+      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
+        <div>
+          <p class="mb-4 text-[10px] uppercase tracking-[0.18em] text-[#C98878]">05 / The identity</p>
+          <h2 class=" text-4xl font-normal md:text-5xl">Grounded in warmth. Made to last.</h2>
+        </div>
+        <div class="space-y-5 text-sm leading-relaxed text-white/70">
+          <p>Heritage red brings a sense of closeness and familiarity. Vintage olive adds a natural counterpoint, while soft cream gives the wordmark room to breathe. Together, the palette feels considered without losing its warmth.</p>
+          <p>The high-contrast serif wordmark takes its cue from classic perfume labels, with the accents in Déjà kept as an essential part of its character. An elegant, editorial type system carries that same feeling across the packaging and campaign.</p>
+        </div>
+      </div>
+      <div class="mx-auto mt-12 grid max-w-400 gap-3 md:grid-cols-2 md:gap-6">
+        {images.slice(6, 8).map((image) => (
+          <img src={`${portfolioPath}${image.src}`} alt={image.alt} class="w-full" loading="lazy" />
+        ))}
+      </div>
+    </section>
+
+    <section class="px-5 py-24 text-center md:py-36">
+      <p class="mb-5 text-[10px] uppercase tracking-[0.18em] text-[#8F3B32]">Déjà / Memories that never fade</p>
+      <h2 class="mx-auto max-w-3xl  text-5xl font-normal leading-[1.02] md:text-7xl">A scent is a way back.</h2>
+      <a href="/#our-work" class="mt-10 inline-block border-b border-[#1a1a1a] pb-2 text-xs uppercase tracking-[0.14em] transition-colors hover:border-[#8F3B32] hover:text-[#8F3B32]">Back to selected work</a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .deja-wordmark {
+    max-height: 76svh;
+  }
+
+  @media (max-width: 767px) {
+    .deja-wordmark {
+      max-height: 68svh;
+    }
+  }
+</style>
